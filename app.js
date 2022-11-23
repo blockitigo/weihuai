@@ -1,2 +1,9 @@
 // app.js
-App({})
+App({
+  onLaunch() {
+    
+  },
+  globalData: {
+    userInfo: null
+  }
+})

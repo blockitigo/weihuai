@@ -1,0 +1,53 @@
+
+.photo{
+  display: flex;
+  height: 100px;
+  width: 100px;
+}
+.iamgeRootAl{
+  box-sizing: border-box;
+}
+.imgRoot{
+  float: left;
+  margin-left: 20rpx;
+  margin-top: 20rpx;
+  position: relative;
+}
+.photo1{
+  width: 350rpx;
+  height: 250rpx;
+}
+
+.picker-view-column{
+  text-align: center;
+}
+.picker-view-time{
+  text-align: center;
+}
+.btnImg{
+  width: 300rpx;
+  height: 50rpx;
+}
+.view-contain-ti {
+  display: flex;
+  height: 40px;
+  margin: 20px;
+  border: 3rpx solid #faca82;
+  border-radius: 10rpx;
+}
+
+.text-ti {
+  position: absolute;
+  font-size: 12px;
+  background: white;
+  margin: -10px 0 0 10px;
+  padding: 0 5px;
+  color: rgb(144, 147, 167);
+}
+
+.input1 {
+  text-align: center;
+  margin:  auto 10px;
+  background: #F6F6F6;
+  
+}

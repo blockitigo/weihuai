@@ -1,0 +1,78 @@
+
+<view class="mail" style="width: 750rpx; height: 1090rpx; display: flex; box-sizing: border-box">
+
+  <view class="left">
+    <view>
+      <image class="myhead-img" src=""></image>
+    </view>
+    
+    <view class="friends1">
+      <image class="friends1-img" src="/images/friends1.png"></image>
+      <text>儿子</text>
+    </view>
+
+    <view class="friends2">
+      <image class="friends2-img" src="/images/friends2.png"></image>
+      <text>女儿</text>
+    </view>
+
+    <view class="friends3">
+      <image class="friends3-img" src="/images/friends3.png"></image>
+      <text>妈妈</text>
+    </view>
+
+    <view class="friends4">
+      <image class="friends4-img" src="/images/friends4.png"></image>
+      <text>爸爸</text>
+    </view>
+  </view>
+
+  <view class="right">
+
+    <view class="thisfriends">
+
+      <view class="calendar-name">
+        <text>儿子</text>
+        <button class="calendar-button"></button>
+      </view>
+
+      <view>
+        <image class="thisfriends-img" src="/images/friends1.png"></image>
+      </view>
+    </view>
+
+    <view class="message1">
+      <image class="message1-img" src="/images/message1.png" ></image>
+    </view>
+
+    <view class="time-position">
+      <text class="time">2022年11月1日 10:30</text>
+      <text class="position">杭州市-拱墅区-浙大城市学院</text>
+    </view>
+
+    <view class="message2">
+      <image class="message1-img" src="/images/message2.png"></image>
+    </view>
+
+    <view class="time-position">
+      <text class="time">2022年11月1日 11:30</text>
+      <text class="position">杭州市-拱墅区-浙大城市学院</text>
+    </view>
+  </view>
+  
+</view>
+
+<view class="buttom"   style="width: 750rpx; height: 94rpx; display: block; box-sizing: border-box">
+  <button class="bleft"  bindtap="goto2" style="width: 265rpx; height: 94rpx; display: block; box-sizing: border-box; left: -243rpx; top: 0rpx; position: relative">
+  <image src="/images/动态.png" style="position: relative; left: 0rpx; top: -19rpx; width: 100rpx; height: 100rpx"></image>
+  </button>
+  <button class="bright" style="width: 268rpx; height: 94rpx; display: block; box-sizing: border-box; left: 0rpx; top: -94rpx; position: relative">
+    <image src="/images/通讯录 (1).png" style="position: relative; left: 0rpx; top: -19rpx; width: 100rpx; height: 100rpx"></image>
+  </button>
+  <button class="bright" bindtap="gotoMine" style="width: 268rpx; height: 94rpx; display: block; box-sizing: border-box; left: 268rpx; top: -188rpx; position: relative">
+    <image src="/images/通讯录.png" style="position: relative; left: 0rpx; top: -19rpx; width: 100rpx; height: 100rpx"></image>
+  </button>
+</view>
+
+
+

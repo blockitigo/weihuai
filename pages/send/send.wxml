@@ -1,0 +1,47 @@
+<hg-editor placeholder="请输入内容" bind:input="onInputtingDesc"></hg-editor>
+<view class="iamgeRootAll">
+  <view class="imgRoot" wx:for="{{imgList}}" wx:key="{{index}}" bindtap="ViewImage" data-url="{{imgList[index]}}">
+      <image class="photo1" src='{{item}}' mode='aspectFill' bindtap="DeleteImg"></image>
+      <!-- <image class="closeImg" bindtap="DeleteImg" src="../../images/2.png" data-index="{{index}}"></image> -->
+    <!-- </view> -->
+  </view>
+  <!-- 一开始用来占位 -->
+  <view wx:if="{{imgList.length < 8}}" class="imgItem" bindtap="ChooseImage" style="width: 205rpx; height: 200rpx; display: flex; box-sizing: border-box">
+    <image class="photo" src="../../images/3.png" model="aspectFit" ></image>
+  </view>
+</view>
+
+
+  <button class="yuyin" catchtouchstart='voice_ing_start' catchtouchend="voice_ing_end" type="warn">
+    <image src="../../images/4.png" class="btnImg"></image>
+    <input class="input1"  placeholder='选择时间'/>
+  </button>
+
+<!-- 时间 -->
+  <picker class="picker-view-time" mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+    
+    
+    <view class="view-contain-ti">
+    <text class="text-ti">时间</text>
+    <input class="input1" value='{{time}}' placeholder='选择时间'/>
+    </view>
+
+
+</picker>
+
+<!-- 重复次数 -->
+
+<view class="section" >
+  <picker class="picker-view-column" bindchange="bindPickerChange" value="{{index}}" range="{{array}}" >
+    <view class="view-contain-ti">
+    <text class="text-ti">重复</text>
+    <input class="input1" value='{{array[index]}}' placeholder='选择时间'/>
+    </view>
+  </picker>
+</view>
+
+
+<button type="primary" bindtap="publish">发布</button>
+
+
+

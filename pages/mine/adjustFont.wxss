@@ -1,0 +1,9 @@
+/* pages/Mine/adjustFont.wxss */
+
+.profile{
+
+    display: flex;
+    align-items: center;
+    background-color: white;
+    height: 500rpx;
+}

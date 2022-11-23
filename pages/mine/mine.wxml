@@ -1,0 +1,60 @@
+<!--pages/Mine/mine.wxml-->
+
+<!-- <text>pages/Mine/mine.wxml</text> -->
+
+<!-- profile 个人信息 -->
+<view class = "profile">
+  <image class = "thumbnail" src="/images/face.png"></image><!-- 缩略图-->
+  <view class = "info">
+    <view class = "name">用户名：上善若水</view>
+    <view class = "detail">
+      <view class = "comment">个性签名:知足常乐</view>
+      <image class = "qrcode" src="/images/qr-code.png"></image><!--#二维码 -->
+      <view class = "more">></view>
+    </view>
+  </view>
+</view>
+
+
+
+<!-- menu 功能菜单 -->
+<view class = "menu">
+  <!-- 变量渲染 -->
+  <block wx:for="{{menu}}" wx:key="*this">
+    <view class = "banner" wx:if="{{item.firstline}}"></view>
+    <!-- 原来这里是view style可以设置大小，曲线救国 删除了v2   -->
+    <view  style="width:100vw" class = "item"  bindtap="showTan" >
+
+      <view>
+        <image class = "icon" src="/images/{{item.icon}}.png"></image><!--#二级菜单图 -->
+        
+      </view>
+      <view class = "comment">{{item.name}}</view>      
+      <view class = "more">></view>
+    </view>
+      <!--block for循环   -->
+  </block>
+
+
+</view>
+
+<!-- <button class = "click-button" type="primary" bindtap="showTan"></button> -->
+<!-- 灰色背景  蒙板   判断蒙版状态-->
+<view class = "tan-bg" wx:if="{{isShow==true}}"></view>
+
+<view class="tan-block" >
+    <view>
+        123
+    </view>
+    <button class = "click-button" type="primary" bindtap="">退出账号</button>
+    <button class = "click-button" type="primary" bindtap="">注销账号</button>
+
+</view>
+
+
+
+
+
+<!-- <scroll-view scroll-y="true" style="height: 100%;">
+    
+</scroll-view> -->
