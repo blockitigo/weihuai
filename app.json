@@ -2,7 +2,6 @@
   "pages": [
     "pages/index/index",
     "pages/addressBook/addressBook",
-    "pages/setting/setting",
     "pages/send/send",
     "pages/mine/mine"
     

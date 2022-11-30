@@ -4,7 +4,7 @@
   
   <view class="top1" >
     <view class="friends1" >
-      <image class="friends1-img" src="/images/friends1.png" style="position: relative; left: -12rpx; top: 15rpx"></image>
+      <image class="friends1-img" src="/images/friends4.png" style="position: relative; left: -12rpx; top: 15rpx"></image>
       <text>儿子</text>
     </view>
     <view class="message1" >
@@ -18,7 +18,7 @@
   
   <view class="top1">
     <view class="friends1">
-      <image class="friends2-img" src="/images/friends2.png"></image>
+      <image class="friends2-img" src="/images/friends5.png"></image>
       <text>女儿</text>
     </view>
     <view class="message1">
@@ -33,11 +33,11 @@
     
   <view class="top1">
     <view class="friends3">
-      <image class="friends3-img" src="/images/friends3.png"></image>
+      <image class="friends3-img" src="/images/friends6.png"></image>
       <text>妈妈</text>
     </view>
     <view class="message2">
-      <image class="message2-img" src="/images/OIP-C.png" style="position: relative; left: 111rpx; top: -67rpx"></image>
+      <image class="message2-img" src="/images/face1.png" style="position: relative; left: 111rpx; top: -67rpx"></image>
     </view>
     <view class="time-position">
       <text class="time" style="position: relative; left: -300rpx; top: 221rpx">2022年11月1日 11:30</text>
@@ -46,10 +46,10 @@
   </view> 
   <view class="buttom"  >
     <button class="bright"  style="width: 176rpx; height: 94rpx; display: block; box-sizing: border-box; left: 19rpx; top: 0rpx; position: relative">
-    <image src="/images/Navigation2.png" style="position: relative; left: -18rpx; top: -19rpx; width: 100rpx; height: 100rpx"></image>
+    <image src="/images/Navigation1.png" style="position: relative; left: -18rpx; top: -19rpx; width: 100rpx; height: 100rpx"></image>
   </button>
   <button class="bright" bindtap="goto" style="width: 176rpx; height: 94rpx; display: block; box-sizing: border-box; left: 1rpx; top: 0rpx; position: relative">
-    <image src="/images/Navigation1.png" style="position: relative; left: -18rpx; top: -22rpx; width: 100rpx; height: 100rpx"></image>
+    <image src="/images/4.png" style="position: relative; left: -18rpx; top: -22rpx; width: 100rpx; height: 100rpx"></image>
   </button>
   <button class="bright" bindtap="gotoMine" style="width: 176rpx; height: 94rpx; display: block; box-sizing: border-box; left: -22rpx; top: 0rpx; position: relative">
     <image src="/images/通讯录.png" style="position: relative; left: -18rpx; top: -19rpx; width: 100rpx; height: 100rpx"></image>

@@ -9,7 +9,7 @@ Page({
     startPoint:"",
     x:0,
     y:0,
-    imgUrl:"/images/增加.png"
+    imgUrl:"/images/动态.png"
   },
   transmit(){
     wx.redirectTo({
