@@ -1,2 +1,62 @@
 <!--pages/Mine/like.wxml-->
-<text>pages/Mine/like.wxml</text>
+
+
+
+<view class="profile">
+    
+
+<!-- 点赞 -->
+<view class = "card">
+  <view class = "meta"     bindtap="liketap">
+    <view class="name">点赞</view>
+    <image class = "liketu" src="/images/点赞.png"></image>
+  </view>
+
+</view>
+
+
+<!-- 收藏 -->
+<view class = "card">
+  <view class = "meta"     bindtap="shoucangtap">
+    <view class="name">收藏</view>
+    <image class = "shoucangtu" src="/images/收藏.png"></image>
+  </view>
+
+</view>
+ 
+
+</view>
+
+
+<!-- menu 功能菜单 -->
+<view class = "menu">
+
+
+</view>
+    
+
+<!-- page弹窗 点赞 -->
+<page-container
+    class="tanchuang"
+    show="{{isShow1}}"
+    position="bottom"
+    round
+    >
+    <view style="height: 1000rpx ">asfjl;kdajfsa;</view>
+</page-container>
+
+
+
+<!-- 
+shocang 弹窗
+<page-container
+    class="tanchuang"
+    show="{{isShow2}}"
+    position="right"
+    round
+
+    >
+    <view style="height: 1000rpx ">2hao;</view>
+    
+</page-container> -->
+

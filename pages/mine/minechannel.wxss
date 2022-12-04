@@ -1,1 +1,20 @@
 /* pages/Mine/minechannel.wxss */
+.text{
+    /* juzhong */
+        width: 100%;
+        height: 60rpx;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    
+    }
+
+    .profile{
+        background: linear-gradient( to bottom,  #FFFFE0	,white);  /*  柔和色*/ 
+        height: 10vh;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        background-color: white;
+        height: 200rpx;
+    }

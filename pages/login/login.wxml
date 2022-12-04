@@ -1,0 +1,18 @@
+<view class="content">
+  <view class="account">
+    <view class="title">account</view>
+    <view class="number"><input bindinput="accountInput" placeholder="username/email/phone" placeholder-style="color:#999999;"/>{{nickname}}</view>
+  </view>
+  <view class="hr"></view>
+  <view class="account">
+    <view class="title">passwd</view>
+    <view class="number"><input bindiblur="pwdBlur" placeholder="please input password" password placeholder-style="color:#999999;"/></view>
+  </view>
+  <view class="hr"></view>
+  <button class="btn" disabled="{{disabled}}" type="{{btnstate}}" bindtap="login">login</button>
+  <view class="operate">
+      <view><navigator url="../mobile/mobile">手机快速注册</navigator></view>
+      
+      <view>找回密码</view>
+  </view>
+</view>

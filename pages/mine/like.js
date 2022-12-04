@@ -6,7 +6,27 @@ Page({
      */
     data: {
 
+
+    
+        isShow1: false,
+        isShow2: false
+
     },
+
+
+    liketap(){
+        this.setData({
+            //取反
+             isShow1:!this.data.isShow1
+             })
+    },
+    shoucangtap(){
+        this.setData({
+            //取反
+             isShow2:!this.data.isShow2
+             })
+    },
+    
 
     /**
      * 生命周期函数--监听页面加载

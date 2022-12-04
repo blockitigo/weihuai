@@ -1,0 +1,22 @@
+{
+  "name": "weihuai",
+  "version": "1.0.0",
+  "description": "",
+  "main": ".eslintrc.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/blockitigo/weihuai.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/blockitigo/weihuai/issues"
+  },
+  "homepage": "https://github.com/blockitigo/weihuai#readme",
+  "dependencies": {
+    "weui-miniprogram": "^1.2.4"
+  }
+}

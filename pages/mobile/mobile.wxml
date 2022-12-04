@@ -1,0 +1,12 @@
+<view class="content">
+   <view class="hr"></view>
+   <view class="numbg">
+     <view>+86</view>
+     <view><input placeholder="please input phone number" maxlength="11" bindblur="mobileblur"/></view>
+   </view>
+   <view class="xieyi">
+     <icon type="success" color="red" size="18"></icon>
+     <text class="agree">同意</text>
+     <text class="option">xx用户注册协议</text>
+   </view>
+</view>

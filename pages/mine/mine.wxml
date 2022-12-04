@@ -4,14 +4,18 @@
 
 <!-- profile 个人信息 -->
 <view class = "profile">
-  <image class = "thumbnail" src="/images/face.png"></image><!-- 缩略图-->
+
+  <image class = "thumbnail" src="{{userinfo.avatarUrl}}"></image><!-- 头像-->
   <view class = "info">
-    <view class = "name">用户名：上善若水</view>
+    <view class = "name" bindtap="login">{{userinfo.nickName}}</view><!-- 昵称-->
     <view class = "detail">
       <view class = "comment">个性签名:知足常乐</view>
       <image class = "qrcode" src="/images/qr-code.png"></image><!--#二维码 -->
-      <view class = "more">></view>
+      <view class = "more" bindtap="edit">   ></view>
     </view>
+  </view>
+  <view class="info" bindtap="logout">
+    <button style="width: 172rpx; height: 94rpx; display: block; box-sizing: border-box; left: 0rpx; top: 0rpx; font-size: 12px">退出登录</button>
   </view>
 </view>
 
@@ -20,15 +24,15 @@
 <!-- menu 功能菜单 -->
 <view class = "menu">
   <!-- 变量渲染 -->
-  <block wx:for="{{menu}}" wx:key="*this">
+  <block wx:for="{{menu}}" wx:key="*this" >
     <view class = "banner" wx:if="{{item.firstline}}"></view>
     <!-- 原来这里是view style可以设置大小，曲线救国 删除了v2   -->
-    <view  style="width:100vw" class = "item"  bindtap="showTan" >
+    <view  style="width:100vw" class = "item" bindtap="{{item.bindtap}}" > <!--  bindtap="showTan"  循环调用  -->
 
       <view>
         <image class = "icon" src="/images/{{item.icon}}.png"></image><!--#二级菜单图 -->
-        
       </view>
+
       <view class = "comment">{{item.name}}</view>      
       <view class = "more">></view>
     </view>
@@ -40,21 +44,43 @@
 
 <!-- <button class = "click-button" type="primary" bindtap="showTan"></button> -->
 <!-- 灰色背景  蒙板   判断蒙版状态-->
-<view class = "tan-bg" wx:if="{{isShow==true}}"></view>
+<!-- <view class = "tan-bg" wx:if="{{isShow==true}}"></view> -->
+<!--  isShow="{{true}}" -->
+<page-container
+    show="{{isShow}}"
+    position="bottom"
+    round
+    class="zhuxiao"
+>
 
-<view class="tan-block" >
+    <view style="height: 500rpx ">您确认注销账号吗？</view> 
+    <button class="zhuxiao">注销账号</button>
+</page-container>
+
+<!-- <page-container
+    show="{{false}}"
+    position="right"
+    round
+    class="gengai"
+    >
+
+    <view style="height: 500rpx ">asfjl;kdajfsa;</view>
+</page-container> -->
+
+
+
+<!-- <view class="tan-block" >
     <view>
         123
     </view>
     <button class = "click-button" type="primary" bindtap="">退出账号</button>
-    <button class = "click-button" type="primary" bindtap="">注销账号</button>
-
-</view>
+    <button class = "click-button" type="primary" bindtap="">注销账号</button> 
 
 
+</view>  -->
 
 
 
-<!-- <scroll-view scroll-y="true" style="height: 100%;">
-    
-</scroll-view> -->
+
+
+<!-- <scroll-view scroll-y="true" style="height: 100%;"></scroll-view> -->

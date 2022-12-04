@@ -6,9 +6,8 @@
 
 <view class = "profile">
 
-        <view class = "name">字体大小请去微信设置-通用页面调整</view>
+        <view class = "name" >字体大小请去微信设置-通用页面调整</view>
         
-
 
 </view>
 

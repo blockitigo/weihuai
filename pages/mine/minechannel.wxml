@@ -1,16 +1,12 @@
 <!--pages/Mine/minechannel.wxml-->
 <!-- <text>pages/Mine/minechannel.wxml</text> -->
-<view class = "profile">
-    <view class = "info">
-        <view class = "name">我的自定义频道</view>
+<view class="profile">
+    
+
+    <view class="text">
+        我的自定义频道
     </view>
-
-
-</view>
-
-
-<view class = "content">
-    <view class = "s">
-        <view class = "name">我的自定义频道</view>
+ 
+     
+    
     </view>
-</view>

@@ -4,6 +4,9 @@ App({
     
   },
   globalData: {
-    userInfo: null
+    userinfo:{
+      nickName:'',
+      avatarUrl:''
+    } 
   }
 })

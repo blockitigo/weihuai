@@ -1,0 +1,48 @@
+
+/* menu部分 */
+.more{
+
+    width: 48rpx;
+    height: 48rpx;
+    margin: 24rpx;
+    color: #9b9b9b;
+    font-weight: 700;
+
+}
+
+.item{
+    display: flex;
+    
+    border-bottom: 1rpx solid #e6e6e6;
+    align-items: center;
+    background-color: white;
+    
+}
+
+.icon{
+    width: 48rpx;
+    height: 48rpx;
+
+    margin: 16rpx;
+    border-radius: 6rpx;
+
+}
+.comment{
+    flex-grow: 1;
+    font-size: 25rpx;
+    font-weight: 200;
+    columns: #727272;
+}
+.content{
+    flex-grow: 1;
+    margin-left: 16rpx;
+    font-size: 24rpx;
+    font-weight: 400;
+
+}
+/* 调试button大小用 */
+
+
+.banner{
+    height: 18rpx;
+}

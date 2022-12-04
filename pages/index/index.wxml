@@ -1,21 +1,19 @@
-
 <view class="mail" style="width: 750rpx; height: 1060rpx; display: flex; box-sizing: border-box">
-  
-  
-  <view class="top1" >
-    <view class="friends1" >
+
+  <view data-weui-theme="dark" class="top1">
+    <view class="friends1">
       <image class="friends1-img" src="/images/friends4.png" style="position: relative; left: -12rpx; top: 15rpx"></image>
       <text>儿子</text>
     </view>
-    <view class="message1" >
-      <image class="message1-img" src="/images/message1.png"  style="position: relative; left: -20rpx; top: -9rpx"></image>
+    <view class="message1">
+      <image class="message1-img" src="/images/message1.png" style="position: relative; left: -20rpx; top: -9rpx"></image>
     </view>
     <view class="time-position">
-      <text class="time" >2022年11月1日 10:30</text>
-      <text class="position" >杭州市-拱墅区-浙大城市学院</text>
+      <text class="time">2022年11月1日 10:30</text>
+      <text class="position">杭州市-拱墅区-浙大城市学院</text>
     </view>
   </view>
-  
+
   <view class="top1">
     <view class="friends1">
       <image class="friends2-img" src="/images/friends5.png"></image>
@@ -28,9 +26,9 @@
       <text class="time">2022年11月1日 11:30</text>
       <text class="position">杭州市-拱墅区-浙大城市学院</text>
     </view>
-  </view>  
+  </view>
 
-    
+
   <view class="top1">
     <view class="friends3">
       <image class="friends3-img" src="/images/friends6.png"></image>
@@ -43,31 +41,12 @@
       <text class="time" style="position: relative; left: -300rpx; top: 221rpx">2022年11月1日 11:30</text>
       <text class="position" style="position: relative; left: -254rpx; top: 221rpx">杭州市-拱墅区-浙大城市学院</text>
     </view>
-  </view> 
-  <view class="buttom"  >
-    <button class="bright"  style="width: 176rpx; height: 94rpx; display: block; box-sizing: border-box; left: 19rpx; top: 0rpx; position: relative">
-    <image src="/images/Navigation1.png" style="position: relative; left: -18rpx; top: -19rpx; width: 100rpx; height: 100rpx"></image>
-  </button>
-  <button class="bright" bindtap="goto" style="width: 176rpx; height: 94rpx; display: block; box-sizing: border-box; left: 1rpx; top: 0rpx; position: relative">
-    <image src="/images/4.png" style="position: relative; left: -18rpx; top: -22rpx; width: 100rpx; height: 100rpx"></image>
-  </button>
-  <button class="bright" bindtap="gotoMine" style="width: 176rpx; height: 94rpx; display: block; box-sizing: border-box; left: -22rpx; top: 0rpx; position: relative">
-    <image src="/images/通讯录.png" style="position: relative; left: -18rpx; top: -19rpx; width: 100rpx; height: 100rpx"></image>
-  </button>
+  </view>
+
+  <movable-area>
+    <movable-view x="{{x}}" y="{{y}}" direction="all" bindtap="transmit">
+      <image src="{{imgUrl}}" mode="widthFix" style="width:60rpx;height:auto"></image>
+    </movable-view>
+  </movable-area>
+
 </view>
-
-<movable-area>
-  <movable-view x="{{x}}" y="{{y}}" direction="all" bindtap="transmit">
-    <image src="{{imgUrl}}" mode="widthFix" style="width:60rpx;height:auto"></image>
-  </movable-view>
-</movable-area>
-
-</view >
-
-
-
-
-
-
-
-

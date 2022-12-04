@@ -1,0 +1,34 @@
+<!--pages/Mine/mydetail.wxml-->
+
+<view class = "menu">
+  <!-- 变量渲染 -->
+  <block wx:for="{{menu}}" wx:key="*this" >
+    <view class = "banner" wx:if="{{item.firstline}}"></view>
+    <!-- 原来这里是view style可以设置大小，曲线救国 删除了v2   -->
+    <view  style="width:100vw" class = "item" bindtap="{{item.bindtap}}" > <!--  bindtap="showTan"  循环调用  -->
+
+      <view>
+        <image class = "icon" src="/images/{{item.icon}}.png"></image><!--#二级菜单图 -->
+      </view>
+
+      <view class = "comment">{{item.name}}</view>      
+      <view class = "more" wx:if="{{item.ismore}}" >></view>
+    </view>
+      <!--block for循环   -->
+  </block>
+
+
+</view>
+
+<page-container
+    show="{{isShow}}"
+    position="bottom"
+    round
+    class="edit"
+    
+    >
+
+    <view style="height: 500rpx ">asfjl;kdajfsa;</view>  
+
+
+</page-container>

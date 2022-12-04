@@ -1,16 +1,49 @@
 {
+  "usingComponents": {
+    "mp-dialog": "weui-miniprogram/dialog/dialog"
+  },
   "pages": [
     "pages/index/index",
     "pages/addressBook/addressBook",
     "pages/send/send",
-    "pages/mine/mine"
-    
+    "pages/mine/mine",
+    "pages/login/login",
+    "pages/mobile/mobile",
+    "pages/mine/adjustFont",
+    "pages/mine/Group",
+    "pages/mine/like",
+    "pages/mine/minechannel",
+    "pages/mine/mydetail",
+    "pages/mine/timestamp",
+    "pages/tabCen/tabCen",
+    "pages/tabLeft/tabLeft",
+    "pages/tabRight/tabRight"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "Weixin",
     "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [{
+      "pagePath": "pages/index/index",
+      "text": "动态",
+      "iconPath": "/images/朋友圈.png",
+      "selectedIconPath": "/images/朋友圈_已选.png"
+    },
+    {
+      "pagePath": "pages/addressBook/addressBook",
+      "text": "通讯录",
+      "iconPath": "/images/朋友.png",
+      "selectedIconPath": "/images/朋友_已选.png"
+    },
+    {
+      "pagePath": "pages/mine/mine",
+      "text": "个人",
+      "iconPath": "/images/个人.png",
+      "selectedIconPath": "/images/个人_已选.png"
+    }]
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json"
