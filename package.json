@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/blockitigo/weihuai#readme",
   "dependencies": {
+    "@vant/weapp": "^1.10.8",
     "weui-miniprogram": "^1.2.4"
   }
 }

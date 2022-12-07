@@ -15,9 +15,12 @@
     "pages/mine/minechannel",
     "pages/mine/mydetail",
     "pages/mine/timestamp",
-    "pages/tabCen/tabCen",
-    "pages/tabLeft/tabLeft",
-    "pages/tabRight/tabRight"
+    "pages/addressBook/trajectory",
+    "pages/addressBook/mother",
+    "pages/addressBook/father",
+    "pages/addressBook/daughter",
+    "pages/addressBook/calendars",
+    "pages/test/test"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -9,11 +9,11 @@ Page({
     startPoint:"",
     x:0,
     y:0,
-    imgUrl:"/images/动态.png"
+    imgUrl:"/images/添加.png"
   },
   transmit(){
     wx.redirectTo({
-      url: '/pages/send/send',
+      url: '/pages/test/test',
     })
   },
 

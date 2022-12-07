@@ -7,7 +7,36 @@ Page({
   onLoad() {
     
   },
-
+  calendar(){
+    wx.redirectTo({
+      url: '/pages/addressBook/calendars',
+    })
+  },
+  trajectory(){
+    wx.redirectTo({
+      url: '/pages/addressBook/trajectory',
+    })
+  },
+  son(){
+    wx.redirectTo({
+      url: '/pages/addressBook/addressBook',
+    })
+  },
+  daughter(){
+    wx.redirectTo({
+      url: '/pages/addressBook/daughter',
+    })
+  },
+  mother(){
+    wx.redirectTo({
+      url: '/pages/addressBook/mother',
+    })
+  },
+  father(){
+    wx.redirectTo({
+      url: '/pages/addressBook/father',
+    })
+  },
   goto2(){
     wx.redirectTo({
       url: '/pages/index/index',
