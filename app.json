@@ -1,7 +1,5 @@
 {
-  "usingComponents": {
-    "mp-dialog": "weui-miniprogram/dialog/dialog"
-  },
+  
   "pages": [
     "pages/index/index",
     "pages/addressBook/addressBook",
@@ -9,18 +7,20 @@
     "pages/mine/mine",
     "pages/login/login",
     "pages/mobile/mobile",
-    "pages/mine/adjustFont",
-    "pages/mine/Group",
-    "pages/mine/like",
+    "pages/MadjustFont/adjustFont",
+    "pages/MGroup/Group",
+    "pages/Mlike/like",
     "pages/mine/minechannel",
     "pages/mine/mydetail",
-    "pages/mine/timestamp",
+    "pages/Mtimestamp/timestamp",
     "pages/addressBook/trajectory",
     "pages/addressBook/mother",
     "pages/addressBook/father",
     "pages/addressBook/daughter",
     "pages/addressBook/calendars",
-    "pages/test/test"
+    "pages/test/test",
+    "pages/edit/edit",
+    "pages/shop/shop"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -42,6 +42,12 @@
       "selectedIconPath": "/images/朋友_已选.png"
     },
     {
+    "pagePath": "pages/shop/shop",
+      "text": "频道商城",
+      "iconPath": "/images/商城1.png",
+      "selectedIconPath": "/images/商城2.png"
+    },
+    {
       "pagePath": "pages/mine/mine",
       "text": "个人",
       "iconPath": "/images/个人.png",
@@ -49,5 +55,7 @@
     }]
   },
   "style": "v2",
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+
 }

@@ -1,0 +1,45 @@
+<view class="all" style="width: 750rpx; height: 499rpx; display: flex; box-sizing: border-box">
+  <!-- 轮播图 -->
+  <swiper class="banners" indicator-dots autoplay indicator-active-color="#d43c33" indicator-color="ivory" style="width: 689rpx; height: 485rpx; display: block; box-sizing: border-box">
+    <swiper-item wx:for="{{imgUrl}}" wx:key="bannerId" style="width: 687rpx; height: 483rpx; display: block; box-sizing: border-box; left: 26rpx; top: 0rpx; position: absolute">
+      <image style="width: 608rpx; height: 366rpx; display: inline-block; box-sizing: border-box; position: relative; left: 40rpx; top: 115rpx" mode="widthFix" src="{{item}}" />
+    </swiper-item>
+  </swiper>
+
+  <!-- 自定义顶部导航 S -->
+  <view class="navbar custom-class" style='height:{{navHeight}}px;'>
+
+    <view class='navbar-title' style='top:{{navTop}}px'>
+      <view class="search-input">
+        <span class="search-con">
+          <view class="center-30f2b4d">
+            <!-- 自定义区域 -->
+            <image class="icon" src="{{searchIcon}}" catchtap="searchbegin" data-postname="{{inputValue}}"></image>
+            <input class="search-size" confirm-type="search" value="{{inputValue}}" type="text" bindinput="getInputValue" placeholder="搜索品牌或商品" placeholder-class="phcolor"></input>
+          </view>
+        </span>
+      </view>
+    </view>
+  </view>
+
+  <!-- 瀑布流布局 -->
+  <view class="content" style="width: 750rpx; height: 483rpx; display: block; box-sizing: border-box">
+    <view style="display:none">
+      <image wx:for="{{images}}" wx:key="id" id="{{item.id}}" src="{{item.pic}}" bindload="onImageLoad"></image>
+    </view>
+    <scroll-view scroll-y="true" style="height:{{scrollH}}px" bindscrolltolower="loadImages">
+      <view style="width: 750rpx; height: 577rpx; display: block; box-sizing: border-box; position: relative; left: 0rpx; top: 493rpx;overflow-x: hidden">
+        <view class="img_item">
+          <view wx:for="{{col1}}" wx:key="id">
+            <image src="{{item.pic}}" style="width:100%;height:{{item.height}}px"></image>
+          </view>
+        </view>
+        <view class="img_item">
+          <view wx:for="{{col2}}" wx:key="id">
+            <image src="{{item.pic}}" style="width:100%;height:{{item.height}}px"></image>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+</view>

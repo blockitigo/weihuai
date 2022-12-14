@@ -1,1 +1,6 @@
-/* pages/test/test.wxss */
+.img_item {
+  width: 48%;
+  margin: 1%;
+  display: inline-block;
+  vertical-align: top;
+}

@@ -48,5 +48,7 @@
     "tabIndent": "insertSpaces",
     "tabSize": 2
   },
-  "simulatorPluginLibVersion": {}
+  "simulatorPluginLibVersion": {},
+  "ignoreDevUnusedFiles": false,
+  "ignoreUploadUnusedFiles": false
 }

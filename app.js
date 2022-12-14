@@ -1,4 +1,7 @@
 // app.js
+
+
+
 App({
   onLaunch() {
     
@@ -7,6 +10,10 @@ App({
     userinfo:{
       nickName:'',
       avatarUrl:''
-    } 
+    },
+    serverUrl:'localhost',
+    openId:'',
+    navHeight:'',
+    navTop:''
   }
 })

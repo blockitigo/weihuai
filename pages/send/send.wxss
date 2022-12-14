@@ -45,9 +45,4 @@
   color: rgb(144, 147, 167);
 }
 
-.input1 {
-  text-align: center;
-  margin:  auto 10px;
-  background: #F6F6F6;
-  
-}
+

@@ -5,17 +5,17 @@
 <!-- profile 个人信息 -->
 <view class = "profile">
 
-  <image class = "thumbnail" src="{{userinfo.avatarUrl}}"></image><!-- 头像-->
+  <image class = "thumbnail" src="{{touxiang}}"></image><!-- 头像-->
   <view class = "info">
-    <view class = "name" bindtap="login">{{userinfo.nickName}}</view><!-- 昵称-->
+    <view class = "name">{{nname}}</view><!-- 昵称-->
     <view class = "detail">
-      <view class = "comment">个性签名:知足常乐</view>
+      <view class = "comment">{{lable}}</view><!-- 个性签名-->
       <image class = "qrcode" src="/images/qr-code.png"></image><!--#二维码 -->
       <view class = "more" bindtap="edit">   ></view>
     </view>
   </view>
-  <view class="info" bindtap="logout">
-    <button style="width: 172rpx; height: 94rpx; display: block; box-sizing: border-box; left: 0rpx; top: 0rpx; font-size: 12px">退出登录</button>
+  <view class="info"><!--#登录按钮 -->
+    <button bindtap="login" style="width: 190rpx; height: 94rpx; display: block; box-sizing: border-box; left: 0rpx; top: 0rpx; font-size: 12px">{{islogin}}</button>
   </view>
 </view>
 

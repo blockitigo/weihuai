@@ -1,0 +1,1 @@
+<view class="channels-item"><image class="channels-pic" src="{{basePath+channels.channelImageSrc}}"></image><view class="channels-name">{{channels.channelName}}</view></view>

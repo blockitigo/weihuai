@@ -1,0 +1,40 @@
+<template name="cardList2">  
+  <view class="c-box rds _list cardList2">
+    <view class="img-box" style="height:345rpx">
+        <image class="imgLoad" mode="aspectFill" style="height:345rpx" src="{{ item.firstPic ? item.firstPic : '/images/imgLoad.png' }}" lazy-load="true" alt=""></image>
+        <block wx:if="{{item.state!=4}}">
+          <!-- 倒计时 -->
+          <view wx:if="{{ item.state==4.5}}" class="goodStateTip goodStateTipDJS">
+            <p class="fs13 num1 ai">
+              <image class="fs12" style="width:28rpx;height:28rpx;margin-right:2rpx;display:inline-block;" src="/images/biao.png" alt="" />
+              <i class="ing-end-time fs10">{{ item.time.h }}</i>
+              <b>:</b>
+              <i class="ing-end-time fs10">{{ item.time.m }}</i>
+              <b>:</b>
+              <i class="ing-end-time fs10">{{ item.time.s }}</i>
+            </p>
+          </view>
+          <view wx:else class="goodStateTip goodStateTipOther">{{ item.nowState }}</view>
+        </block>
+    </view>
+    
+    <view class="text-box">
+        <view class="fs14 num2" style="height:80rpx;margin-bottom:20rpx;">{{item.title}}</view>
+
+        <view class="tips clear" 
+        style="padding:0;margin-bottom:10rpx;" 
+        wx:if="{{ item.rebate && item.state !=5 && item.state != 6 }}">
+            <li class="left fan red fs10 hongbao" style="padding:2rpx 10rpx;opacity:{{item.state==5.55 ? '0' : '1' }}">返<i class="fs10">￥</i><span class="n">{{ item.rebate }}</span></li>
+        </view>
+
+        <view class="ai" style="padding:6rpx 0;">
+            <view class="fs11 old-price hui">原价<i class="fs10">￥</i><span class="n">{{ item.originalPrice || 0 }}</span></view>
+        </view>
+
+        <view class="clear price-box ai">
+            <span class="left fs12 red now-price">￥<i class="fs16 bold"><span class="n">{{ item.sellingPrice || 0 }}</span></i></span>
+            <span class="right fs12 volume hui">已售<span>{{ item.salesVolume > 0 ? item.salesVolume : 0 }}</span></span>
+        </view>
+    </view>
+  </view>
+</template> 

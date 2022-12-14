@@ -1,0 +1,7 @@
+<!--pages/test/test.wxml-->
+<text>录音</text>
+<button bindtap="start" class='btn'>开始录音</button>
+<button bindtap="pause" class='btn'>暂停录音</button>
+<button bindtap="resume" class='btn'>继续录音</button>
+<button bindtap="stop" class='btn'>停止录音</button>
+<button bindtap="play" class='btn'>播放录音</button>

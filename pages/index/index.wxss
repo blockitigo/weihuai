@@ -5,6 +5,7 @@
   padding: 20rpx 20rpx 40rpx 20rpx;
 }
 .top1{
+  display: flex;
   width: 713rpx; 
   height: 361rpx; 
   display: flex; 
@@ -172,7 +173,8 @@
 
 .time-position {
   display: flex;
-  flex-direction: column;
+  width: 400rpx;
+  flex-direction: row;
   margin-top: 10rpx;
 }
 .time {

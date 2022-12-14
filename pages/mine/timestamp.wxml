@@ -1,4 +1,0 @@
-<!--pages/Mine/timestamp.wxml-->
-<text>pages/Mine/timestamp.wxml</text>
-<slider bindchange="slider1change" left-icon="cancel" right-icon="success_no_circle"/>
-

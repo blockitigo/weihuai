@@ -1,0 +1,21 @@
+@charset "UTF-8";
+/* 水平间距 */
+/* 水平间距 */
+.channels-item {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 5px;
+  border-bottom: 1px solid #f0f0f0;
+  align-items: center;
+  justify-content: center;
+}
+.channels-item .channels-pic {
+  width: 600rpx;
+  height: 250rpx;
+  display: block;
+}
+.channels-item .channels-name {
+  padding-top: 10rpx;
+  font-size: 18;
+}
+

@@ -1,0 +1,26 @@
+<!--pages/Mine/Group.wxml-->
+
+
+<view class = "profile">
+<view class = "card">
+  <view class = "meta"     bindtap="liketap">
+    <view class="name">创建群组</view>
+    <image class = "liketu" src="/images/点赞.png"></image>
+  </view>
+
+</view>
+
+
+<!-- 收藏 -->
+<view class = "card">
+  <view class = "meta"     bindtap="shoucangtap">
+    <view class="name">查看已加入的群组</view>
+    <image class = "shoucangtu" src="/images/收藏.png"></image>
+  </view>
+
+</view>
+
+
+</view>
+
+

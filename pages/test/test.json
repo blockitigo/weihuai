@@ -1,7 +1,4 @@
 {
   "usingComponents": {
-    "mp-dialog": "weui-miniprogram/dialog/dialog",
-    "mp-gallery": "weui-miniprogram/gallery/gallery",
-    "van-button": "/miniprogram_npm/@vant/weapp/button/index"
   }
 }

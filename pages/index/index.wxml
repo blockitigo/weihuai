@@ -1,6 +1,6 @@
 <view class="mail" style="width: 750rpx; height: 1060rpx; display: flex; box-sizing: border-box">
 
-  <view data-weui-theme="dark" class="top1">
+  <view class="top1">
     <view class="friends1">
       <image class="friends1-img" src="/images/friends4.png" style="position: relative; left: -12rpx; top: 15rpx"></image>
       <text>儿子</text>
@@ -9,9 +9,10 @@
       <image class="message1-img" src="/images/message1.png" style="position: relative; left: -20rpx; top: -9rpx"></image>
     </view>
     <view class="time-position">
-      <text class="time">2022年11月1日 10:30</text>
-      <text class="position">杭州市-拱墅区-浙大城市学院</text>
-    </view>
+        <text class="time">2022年11月1日 9:30</text>
+        <text class="position">杭州市-拱墅区-浙大城市学院</text>
+      </view>
+    
   </view>
 
   <view class="top1">
@@ -22,25 +23,7 @@
     <view class="message1">
       <image class="message1-img" src="/images/message2.png"></image>
     </view>
-    <view class="time-position">
-      <text class="time">2022年11月1日 11:30</text>
-      <text class="position">杭州市-拱墅区-浙大城市学院</text>
-    </view>
-  </view>
-
-
-  <view class="top1">
-    <view class="friends3">
-      <image class="friends3-img" src="/images/friends6.png"></image>
-      <text>妈妈</text>
-    </view>
-    <view class="message2">
-      <image class="message2-img" src="/images/face1.png" style="position: relative; left: 111rpx; top: -67rpx"></image>
-    </view>
-    <view class="time-position">
-      <text class="time" style="position: relative; left: -300rpx; top: 221rpx">2022年11月1日 11:30</text>
-      <text class="position" style="position: relative; left: -254rpx; top: 221rpx">杭州市-拱墅区-浙大城市学院</text>
-    </view>
+    
   </view>
 
   <movable-area>

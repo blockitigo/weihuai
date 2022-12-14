@@ -91,17 +91,7 @@
 
   </view>
 
-  <view class="buttom"   style="width: 750rpx; display: block; box-sizing: border-box">
-    <button class="bleft"  bindtap="goto2" style="width: 265rpx; height: 94rpx; display: block; box-sizing: border-box; left: -243rpx; top: 0rpx; position: relative">
-    <image src="/images/Navigation1.png" style="position: relative; left: 0rpx; top: -19rpx; width: 100rpx; height: 100rpx"></image>
-    </button>
-    <button class="bright" style="width: 268rpx; height: 94rpx; display: block; box-sizing: border-box; left: 0rpx; top: -94rpx; position: relative">
-      <image src="/images/4.png" style="position: relative; left: 0rpx; top: -19rpx; width: 100rpx; height: 100rpx"></image>
-    </button>
-    <button class="bright" bindtap="gotoMine" style="width: 268rpx; height: 94rpx; display: block; box-sizing: border-box; left: 268rpx; top: -188rpx; position: relative">
-      <image src="/images/通讯录.png" style="position: relative; left: 0rpx; top: -19rpx; width: 100rpx; height: 100rpx"></image>
-    </button>
-  </view>
+  
   
 </view>
 
