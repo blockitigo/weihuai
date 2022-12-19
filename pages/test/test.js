@@ -2,7 +2,6 @@ let col1H = 0;
 let col2H = 0;
 
 Page({
-
     data: {
         scrollH: 0,
         imgWidth: 0,
@@ -76,9 +75,20 @@ Page({
         this.setData(data);
     },
 
+    onepic: function(){
+      wx.request({
+        url: "https://121.199.66.137:8082/home/todayposting?userId="+"ch",
+        method:'GET',
+        success:function(res){
+          console.log(res)
+        }
+      })
+    },
+
+    // 将image列表遍历数据
     loadImages: function () {
         let images = [
-            { pic: "/images/message1.png", height: 0 },
+            { pic: "/images/message1.png", height: 0},
             { pic: "/images/message2.png", height: 0 },
             { pic: "/images/message3.png", height: 0 },
             { pic: "/images/message4.png", height: 0 },
@@ -98,16 +108,6 @@ Page({
             { pic: "/images/message2.png", height: 0 },
             { pic: "/images/message3.png", height: 0 },
             { pic: "/images/message4.png", height: 0 },
-            // { pic: "../../images/5.png", height: 0 },
-            // { pic: "../../images/6.png", height: 0 },
-            // { pic: "../../images/7.png", height: 0 },
-            // { pic: "../../images/8.png", height: 0 },
-            // { pic: "../../images/9.png", height: 0 },
-            // { pic: "../../images/10.png", height: 0 },
-            // { pic: "../../images/11.png", height: 0 },
-            // { pic: "../../images/12.png", height: 0 },
-            // { pic: "../../images/13.png", height: 0 },
-            // { pic: "../../images/14.png", height: 0 }
         ];
 
         let baseId = "img-" + (+new Date());

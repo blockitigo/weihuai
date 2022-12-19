@@ -36,13 +36,10 @@
    </view>
 
     <view class="right">
-
       <view class="thisfriends">
-
         <view>
           <text class="calendar-name">儿子</text>
         </view>
-
         <view class="calendar-button">
           <button bindtap="calendar" style="width: 120rpx; height: 73rpx; display: block; box-sizing: border-box; left: 331rpx; top: 0rpx; position: relative">
             <image class="calendar-img" src="/images/日历.png"></image>

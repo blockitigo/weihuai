@@ -138,7 +138,7 @@ Page({
             signature: info.signature // 使用 sha1( rawData + sessionkey ) 得到字符串，用于校验用户信息
           },
           success(res){
-            console.log(res)
+            console.log(''+res)
             if(res.data.avatarUrl.indexOf("http")>=0)
               that.setData({
                 touxiang:res.data.avatarUrl

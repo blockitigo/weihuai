@@ -131,6 +131,7 @@ Page({
             imgWidth: imgWidth
           });
 
+          // 暂时由loadImages改为test
           this.loadImages();
         }
       })
@@ -182,7 +183,7 @@ Page({
     this.setData(data);
   },
 
-  //图片位置
+  //瀑布流图片位置
   loadImages: function () {
     let images = [
         { pic: "https://121.199.66.137:8082/share/shop/image/1.png", height: 0 },
@@ -209,14 +210,48 @@ Page({
     });
 },
 
-  //点击进入详情页
-  goToList: function (e) {
+// 测试方法
+test: function () {
+  wx.request({
+    url: 'https://121.199.66.137:8082/share/shop',
+    method: "GET",
+    success(res){
+      console.log('request rse :'+res)
+      // if(res.data.avatarUrl.indexOf("http")>=0)
+      //   that.setData({
+      //     touxiang:res.data.avatarUrl
+      //   })
+      // else
+      // that.setData({
+      //   touxiang:"https://121.199.66.137:8082/share"+res.data.avatarUrl,
+      //   nname:res.data.nickName
+      // })
+    }
+  })
+  let images = [
+      { pic: "https://121.199.66.137:8082/share/shop/image/1.png", height: 0 },
+      // { pic: "https://121.199.66.137:8082/share/shop/image/8.png", height: 0 },
+      // { pic: "https://121.199.66.137:8082/share/shop/image/9.png", height: 0 },
+      // { pic: "https://121.199.66.137:8082/share/shop/image/10.png", height: 0 },
+      // { pic: "https://121.199.66.137:8082/share/shop/image/11.png", height: 0 },
+      // { pic: "https://121.199.66.137:8082/share/shop/image/12.png", height: 0 },
+      // { pic: "https://121.199.66.137:8082/share/shop/image/13.png", height: 0 },
+      // { pic: "https://121.199.66.137:8082/share/shop/image/14.png", height: 0 },
+      // { pic: "https://121.199.66.137:8082/share/shop/image/15.png", height: 0 },
+  ];
 
-  },
-  goUpdate: function () {
-    this.onLoad()
-    console.log("我更新啦")
-  },
+  let baseId = "img-" + (+new Date());
+
+  for (let i = 0; i < images.length; i++) {
+      images[i].id = baseId + "-" + i;
+  }
+
+  this.setData({
+      loadingCount: images.length,
+      images: images
+  });
+},
+  
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

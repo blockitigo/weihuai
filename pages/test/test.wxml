@@ -6,6 +6,7 @@
     <view class="img_item">
       <view wx:for="{{col1}}" wx:key="id">
         <image src="{{item.pic}}" style="width:100%;height:{{item.height}}px"></image>
+        <text>{{}}</text>
       </view>
     </view>
     <view class="img_item">
