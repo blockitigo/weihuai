@@ -1,12 +1,69 @@
 <!--pages/Mine/minechannel.wxml-->
 <!-- <text>pages/Mine/minechannel.wxml</text> -->
 <view class="profile">
-    
-
     <view class="text">
         我的自定义频道
-    </view>
- 
-     
+    </view> 
+</view>
+
+<view class="xiamian">
+    <!-- 下方表格 -->
+    <view class="bottom">
+
+    <view class="bottom-content">
     
+    <view class="channel">
+        <view class="title">
+            生活健康
+        </view>
+        <view class="tips">
+            <view class="tips1">
+                2022年11月11日
+            </view>
+            <view class="tips1">
+                浙江省杭州市拱墅区
+            </view>
+        </view>
+        <view>
+            <image class="message1-img" src="/images/message1.png" style="position: relative; left: 50rpx; top: -9rpx"></image>
+        </view>
+
     </view>
+    </view>
+
+
+
+    <!-- 2 -->
+    <view class="bottom-content">
+    
+    <view class="channel">
+        <view class="title">
+            生活健康
+        </view>
+        <view class="tips">
+            <view class="tips1">
+                2022年11月11日
+            </view>
+            <view class="tips1">
+                浙江省杭州市拱墅区
+            </view>
+        </view>
+        <view>
+            <image class="message1-img" src="/images/message1.png" style="position: relative; left: 50rpx; top: -9rpx"></image>
+        </view>
+
+    </view>
+    </view>
+
+
+    </view>
+
+    
+    <view class="hint">
+        没有更多
+    </view>
+</view>
+
+
+
+

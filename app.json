@@ -4,23 +4,29 @@
     "pages/index/index",
     "pages/addressBook/addressBook",
     "pages/send/send",
-    "pages/mine/mine",
+  
     "pages/login/login",
     "pages/mobile/mobile",
-    "pages/MadjustFont/adjustFont",
-    "pages/MGroup/Group",
+
     "pages/Mlike/like",
+    "pages/mine/mine",
     "pages/mine/minechannel",
     "pages/mine/mydetail",
     "pages/Mtimestamp/timestamp",
+    "pages/mine/Group",
+    "pages/mine/timestamp",
+
     "pages/addressBook/trajectory",
-    "pages/addressBook/mother",
-    "pages/addressBook/father",
-    "pages/addressBook/daughter",
     "pages/addressBook/calendars",
+
+
     "pages/test/test",
     "pages/edit/edit",
-    "pages/shop/shop"
+
+    "pages/shop/shop",
+    "pages/shop/channel",
+
+    "pages/out/out"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -56,6 +62,11 @@
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json",
-  "lazyCodeLoading": "requiredComponents"
+  "lazyCodeLoading": "requiredComponents",
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  }
 
 }

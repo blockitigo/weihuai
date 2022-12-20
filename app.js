@@ -8,9 +8,11 @@ App({
   },
   globalData: {
     userinfo:{
+      id:'',
       nickName:'',
       avatarUrl:''
     },
+    toUrl:'',
     serverUrl:'localhost',
     openId:'',
     navHeight:'',

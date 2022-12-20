@@ -65,7 +65,7 @@ Page({
   //从group到exit全部为跳转函数
   group() {
     wx.navigateTo({
-      url: '/pages/MGroup/Group',
+      url: '/pages/mine/Group',
     })
   },
 
@@ -90,7 +90,7 @@ Page({
 
   timeStamp() {
     wx.navigateTo({
-      url: '/pages/Mtimestamp/timestamp',
+      url: '/pages/mine/timestamp',
     })
   },
 
@@ -138,6 +138,7 @@ Page({
             signature: info.signature // 使用 sha1( rawData + sessionkey ) 得到字符串，用于校验用户信息
           },
           success(res){
+            app.globalData.userinfo.id = res.data.userId
             console.log(''+res)
             if(res.data.avatarUrl.indexOf("http")>=0)
               that.setData({

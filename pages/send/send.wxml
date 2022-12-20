@@ -1,48 +1,58 @@
-<textarea></textarea>
+<view class="content">
+  <form bindsubmit="formSubmit">
+    <view class="text-content">
+      <view class='text-area'>
+        <textarea name="input-content" type="text" placeholder="说点什么吧~" placeholder-class="holder" value="{{textContent}}" bindblur='getTextAreaContent'></textarea>
+      </view>
 
-<view class="iamgeRootAll">
-  <view class="imgRoot" wx:for="{{imgList}}" wx:key="{{index}}" bindtap="ViewImage" data-url="{{imgList[index]}}">
-      <image class="photo1" src='{{item}}' mode='aspectFill' bindtap="DeleteImg"></image>
-      <!-- <image class="closeImg" bindtap="DeleteImg" src="../../images/2.png" data-index="{{index}}"></image> -->
-    <!-- </view> -->
-  </view>
-  <!-- 一开始用来占位 -->
-
-</view>
-<view wx:if="{{imgList.length < 8}}" class="imgItem" bindtap="ChooseImage" style="width: 205rpx; height: 200rpx; display: flex; box-sizing: border-box">
-    <image class="photo" src="../../images/3.png" model="aspectFit" ></image>
-  </view>
-<block>
-  <button class="yuyin" catchtouchstart='voice_ing_start' catchtouchend="voice_ing_end" type="warn">
-  <input class="input1"  placeholder='语音'/>
-    <image src="../../images/4.png" class="btnImg"></image>
-  </button>
-</block>
-<!-- 时间 -->
-  <picker class="picker-view-time" mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
-    
-    
-    <view class="view-contain-ti">
-    <text class="text-ti">时间</text>
-    <input class="input1" value='{{time}}' placeholder='选择时间'/>
     </view>
+    <scroll-view class="image-group" scroll-x="true">
+      <block wx:for='{{images}}' wx:for-index='idx'>
+      <view>
+        <image src='{{images[idx]}}' mode='aspectFill' bindtap="previewImg"></image>
+        <icon type='clear' bindtap='removeImg'  data-index="{{idx}}" ></icon>
+      </view>
+      </block>
+      
+    </scroll-view>
+<page-container  class="tanchuang"
+    show="{{isShow1}}"
 
-
-</picker>
-
-<!-- 重复次数 -->
-
-<view class="section" >
-  <picker class="picker-view-column" bindchange="bindPickerChange" value="{{index}}" range="{{array}}" >
+    round height="1000rpx" position="bottom">
+    <view height="1000rpx">
+      <button class="btn-img" bindtap='chooseImage'>选择图片</button>
+      <button bindtap="start" class='btn'>开始录音</button>
+      <button bindtap="stop" class='btn'>停止录音</button>
+      <view class='btn-func'>
+    <!-- 时间 -->
+    <picker class="picker-view-time" mode="multiSelector" bindchange="bindMultiPickerChange"        bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+      <view class="view-contain-ti">
+      <text class="text-ti">时间</text>
+      <input class="input1" value='{{time}}' placeholder='选择时间'/>
+      </view>
+    </picker>
+   <!-- 重复次数 -->
+    <view class="section" >
+    <picker class="picker-view-column" bindchange="bindPickerChange" value="{{index}}" range="{{array}}" >
     <view class="view-contain-ti">
     <text class="text-ti">重复</text>
     <input class="input1" value='{{array[index]}}' placeholder='选择时间'/>
     </view>
-  </picker>
+    </picker>
+  </view>
 </view>
+    </view>
+
+</page-container >
+
+<view class='btn-func'>
+  
+  <button class="btn" bindtap="isShow">更多</button>
+ <button class="btn" formType='submit'  open-type="getUserInfo">发布圈圈</button>
+      
+      <!-- <image hidden=''></image> -->
+    </view>
 
 
-<button type="primary" bindtap="publish">发布</button>
-
-
-
+  </form>
+</view>

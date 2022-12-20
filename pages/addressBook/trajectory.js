@@ -1,145 +1,82 @@
-//index.js
-//获取应用实例
-const app = getApp()
-
 Page({
   data: {
-    StatusBar: app.globalData.StatusBar,
-    CustomBar: app.globalData.CustomBar,
-    height: wx.getSystemInfoSync().windowHeight,
-    latitude: 0,
-    longitude: 0,
-    playIndex: 0,   
-    timer: null,
-    markers: [],
-    polyline: [],
-    pointsInfo:[]
+    longitude: 113.14278, //地图界面中心的经度
+    latitude: 23.02882, //地图界面中心的纬度
+    polyline: [{
+      points: [],
+      color:"#FF0000DD",
+      width: 2,
+      dottedLine: true
+    }],
+    markers: [ //标志点的位置
+    ]
   },
-  regionchange(e) {
-    //console.log(e.type)
-  },
-  markertap(e) {
-    //console.log(e.markerId)
-  },
-  controltap(e) {
-    //console.log(e.controlId)
-  },
-  beginTrack:function(e){
 
-  },
-  onLoad: function (options){
+  onLoad: function () {
     var that = this;
-    wx.request({
-      url: 'http://**/getTrack',
-      data: {  
-        beginTime:"开始时间",
-        endTime:"结束时间"
-      },
-      method: "post",
+    wx.getLocation({
+      type: "wgs84",
       success: function (res) {
+        var latitude = res.latitude;
+        var longitude = res.longitude;
+        console.log("当前位置的经纬度为：", res.latitude, res.longitude);
         that.setData({
-          pointsInfo:res.data.pointsInfos,
-          polyline: [{
-            points: res.data.points,
-            color: "#FF0000DD",
-            width: 4,
-            dottedLine: true
-          }],
-          markers: [{
-            iconPath: '../../img/location.jpg',
-            id: 0,
-            latitude: res.data.points[0].latitude,
-            longitude: res.data.points[0].longitude,
-            width: 30,
-            height: 30,
-            title: that.data.brandNumber,
-            callout: {
-              content: that.data.brandNumber + ' \n 时间：' + res.data.pointsInfos[0].create_time + ' \n 速度：' + res.data.pointsInfos[0].speed + ' km/h',
-              color: "#000000",
-              fontSize: 13,
-              borderRadius: 2,
-              bgColor: "#fff",
-              display: "ALWAYS",
-              boxShadow: "5px 5px 10px #aaa"
-            }
-          }],
-          latitude: res.data.points[0].latitude,
-          longitude: res.data.points[0].longitude,
+          latitude: res.latitude,
+          longitude: res.longitude,
         })
+      }
+    }),
+    wx.request({
+      url: 'https://121.199.66.137:8082/home/todayposting?userId=ch&pageSize=4',
+      method: 'GET',
+      success:function(res){
+        var point=[]
+        for(var index in res.data.list){
+          var mark={
+            id: index,
+            iconPath: "../../images/friends1.png",
+            latitude: res.data.list[index].trace.latitude,
+            longitude: res.data.list[index].trace.longitude,
+            width: 28,
+            height: 32
+          }
+          that.data.markers.push(mark)
+          console.log(that.data.markers)
+          point.push({
+            latitude: res.data.list[index].trace.latitude,
+            longitude: res.data.list[index].trace.longitude
+          })
+          
+        }
+        that.setData({
+          polyline:[{
+            points: point,
+            color:"#FF0000DD",
+            width: 2,
+            dottedLine: true
+          }]
+        })
+        console.log('polyline:',that.data.polyline)
       }
     })
   },
-  /**
-   * 开始
-   */
-  beginTrack:function(){
-    var that = this;
-    var i = that.data.playIndex == 0 ? 0 : that.data.playIndex;
-    that.timer = setInterval(function () {
-      i ++
-      that.setData({
-        playIndex: i,
-        latitude: that.data.polyline[0].points[i].latitude,
-        longitude: that.data.polyline[0].points[i].longitude,
-        markers: [{
-          iconPath: '../../img/car/e0.png',
-          id: 0,
-          latitude: that.data.polyline[0].points[i].latitude,
-          longitude: that.data.polyline[0].points[i].longitude,
-          width: 30,
-          height: 30,
-          title: that.data.brandNumber,
-          callout: {
-            content: that.data.brandNumber + ' \n 时间：' + that.data.pointsInfo[i].create_time + ' \n 速度：' + that.data.pointsInfo[i].speed + ' km/h',
-            color: "#000000",
-            fontSize: 13,
-            borderRadius: 2,
-            bgColor: "#fff",
-            display: "ALWAYS",
-            boxShadow: "5px 5px 10px #aaa"
-          }
-        }]
-      }) 
-      if ((i+1) >= that.data.polyline[0].points.length) { 
-        that.endTrack();
-      }
-    }, 500) 
-  }, 
-  /**
-   * 暂停
-   */
-  pauseTrack:function(){
-    var that = this;  
-    clearInterval(this.timer)
+  onReady: function () {
+
   },
+
   /**
-   * 结束
+   * 地图放大缩小事件触发
+   * @param {*} e 
    */
-  endTrack:function(){
-    var that = this; 
-    that.setData({
-      playIndex: 0,
-      latitude: that.data.polyline[0].points[0].latitude,
-      longitude: that.data.polyline[0].points[0].longitude,
-      markers: [{
-        iconPath: '../../img/car/e0.png',
-        id: 0,
-        latitude: that.data.polyline[0].points[0].latitude,
-        longitude: that.data.polyline[0].points[0].longitude,
-        width: 30,
-        height: 30,
-        title: that.data.brandNumber,
-        callout: {
-          content: that.data.brandNumber + ' \n 时间：' + that.data.pointsInfo[0].create_time + ' \n 速度：' + that.data.pointsInfo[0].speed + ' km/h',
-          color: "#000000",
-          fontSize: 13,
-          borderRadius: 2,
-          bgColor: "#fff",
-          display: "ALWAYS",
-          boxShadow: "5px 5px 10px #aaa"
-        }
-      }]
-    }) 
-    clearInterval(this.timer)
+  bindregionchange(e) {
+    console.log('=bindregiοnchange=', e)
+  },
+
+  /**
+   * 点击地图事件，有经纬度信息返回
+   * @param {*} e 
+   */
+  bindtapMap(e) {
+    console.log('=bindtapMap=', e)
   }
 })

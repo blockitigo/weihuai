@@ -2,63 +2,77 @@ const app = getApp()
 
 Page({
   data: {
-    
+    role: "",
+    userId: "",
+    friends: [],
+    message: [],//封装获取到的信息
+    location: [],
   },
-  onLoad() {
-    
+  test(options) {
+    app.globalData.toUrl = options.currentTarget.dataset.num,
+      wx.navigateTo({
+        url: '../out/out',
+      })
   },
-  calendar(){
+  // 获取定位城市名称方法
+  getCity(lng, lat) {
+    var that = this;
+    return new Promise((resolve, reject) => {
+      wx.request({
+        url: `https://apis.map.qq.com/ws/geocoder/v1/?key=NDOBZ-MSZEX-5PP43-ZXE4X-BPZ3H-75FUU&location=` + lng + ',' + lat,
+        success: function (res) {
+          resolve(res);
+        },
+      })
+    })
+  },
+  onLoad: function (options) {
+    var that = this;
+    wx.getUserInfo({
+      success: function (res) {
+        that.setData({
+          role: app.globalData.userinfo.id
+        })
+      }
+    })
+    wx.request({
+      url: 'https://121.199.66.137:8082/contacts?userId=' + app.globalData.userinfo.id,
+      method: 'GET',
+      success: function (res) {
+        that.setData({
+          friends: res.data
+        })
+      },
+    })
+  },
+  load: function () {
+    var that = this;
+    wx.request({
+      url: 'https://121.199.66.137:8082/home/todayposting?userId=' + app.globalData.userinfo.id,
+      method: "GET",
+      success: function (res) {
+        that.setData({
+          message: res.data
+        })
+      }
+    })
+  },
+  calendar() {
     wx.redirectTo({
       url: '/pages/addressBook/calendars',
     })
   },
-  trajectory(){
+  trajectory() {
     wx.redirectTo({
       url: '/pages/addressBook/trajectory',
     })
   },
-  son(){
-    wx.redirectTo({
-      url: '/pages/addressBook/addressBook',
+  son(name) {
+    var that = this;
+    that.setData({
+      userId: name.currentTarget.dataset.id,
+      role: name.currentTarget.dataset.name
     })
-  },
-  daughter(){
-    wx.redirectTo({
-      url: '/pages/addressBook/daughter',
-    })
-  },
-  mother(){
-    wx.redirectTo({
-      url: '/pages/addressBook/mother',
-    })
-  },
-  father(){
-    wx.redirectTo({
-      url: '/pages/addressBook/father',
-    })
-  },
-  goto2(){
-    wx.redirectTo({
-      url: '/pages/index/index',
-    })
-  },
-  gotoMine(){
-    wx.redirectTo({
-      url: '/pages/mine/mine',
-    })
-  },
-
-  getUserProfile(e) {
-    // 推荐使用wx.getUserProfile获取用户信息，开发者每次通过该接口获取用户个人信息均需用户确认，开发者妥善保管用户快速填写的头像昵称，避免重复弹窗
-    wx.getUserProfile({
-      desc: '展示用户信息', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
-      success: (res) => {
-        console.log(res)
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
-        })
-      }
-    })
+    that.load()
   },
 })

@@ -10,11 +10,12 @@ Page({
     images: [],
     col1: [],
     col2: [],
+    cname:[],
     imgUrl: [
       'https://121.199.66.137:8082/share/shop/image/7.png',
       'https://121.199.66.137:8082/share/shop/image/2.png',
       'https://121.199.66.137:8082/share/shop/image/3.png',
-      'https://121.199.66.137:8082/share/shop/image/4.png',
+      'https://121.199.66.137:8082/share/shop/image/7.png',
       'https://121.199.66.137:8082/share/shop/image/5.png',
       'https://121.199.66.137:8082/share/shop/image/6.png'
     ], //轮播图
@@ -48,6 +49,13 @@ Page({
     }, {
       result: "手机车载支架"
     }] //虚拟的查询结果
+  },
+
+  // 轮播图跳转链接
+  toChannel: function (){
+    wx.navigateTo({
+      url: '/pages/shop/channel',
+    })
   },
 
   
@@ -118,7 +126,6 @@ Page({
   onLoad: function (options) {
     // 历史搜索
     let that = this
-    
       wx.getSystemInfo({
         success: (res) => {
           let ww = res.windowWidth;
@@ -131,9 +138,12 @@ Page({
             imgWidth: imgWidth
           });
 
-          // 暂时由loadImages改为test
+          // 此为加载瀑布流图片
           this.loadImages();
-        }
+
+          this.loadtext();
+        },
+        
       })
   },
 
@@ -183,18 +193,28 @@ Page({
     this.setData(data);
   },
 
+  loadtext:function(){
+    wx.request({
+      url: 'https://121.199.66.137:8082/shop/category',
+      method:'GET',
+      success(res){
+        console.log('request rse :'+res)
+      }
+    })
+  },
   //瀑布流图片位置
   loadImages: function () {
     let images = [
-        { pic: "https://121.199.66.137:8082/share/shop/image/1.png", height: 0 },
-        { pic: "https://121.199.66.137:8082/share/shop/image/8.png", height: 0 },
-        { pic: "https://121.199.66.137:8082/share/shop/image/9.png", height: 0 },
-        { pic: "https://121.199.66.137:8082/share/shop/image/10.png", height: 0 },
-        { pic: "https://121.199.66.137:8082/share/shop/image/11.png", height: 0 },
-        { pic: "https://121.199.66.137:8082/share/shop/image/12.png", height: 0 },
-        { pic: "https://121.199.66.137:8082/share/shop/image/13.png", height: 0 },
-        { pic: "https://121.199.66.137:8082/share/shop/image/14.png", height: 0 },
-        { pic: "https://121.199.66.137:8082/share/shop/image/15.png", height: 0 },
+        { pic: "https://121.199.66.137:8082/share/shop/category/0.png", height: 0 },
+        { pic: "https://121.199.66.137:8082/share/shop/category/1.png", height: 0 },
+        { pic: "https://121.199.66.137:8082/share/shop/category/2.png", height: 0 },
+        { pic: "https://121.199.66.137:8082/share/shop/category/3.png", height: 0 },
+        { pic: "https://121.199.66.137:8082/share/shop/category/4.png", height: 0 },
+        { pic: "https://121.199.66.137:8082/share/shop/category/5.png", height: 0 },
+        { pic: "https://121.199.66.137:8082/share/shop/category/6.png", height: 0 },
+        { pic: "https://121.199.66.137:8082/share/shop/category/7.png", height: 0 },
+        { pic: "https://121.199.66.137:8082/share/shop/category/8.png", height: 0 },
+
         
     ];
 

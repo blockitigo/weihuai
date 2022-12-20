@@ -13,7 +13,7 @@ Page({
   },
   transmit(){
     wx.redirectTo({
-      url: '/pages/test/test',
+      url: '/pages/send/send',
     })
   },
 

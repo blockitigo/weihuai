@@ -1,82 +1,80 @@
 <view class="mail">
   <view class="top">
 
-    <view class="left">
+    <scroll-view scroll-y class="left">
       <view>
         <image class="myhead-img" src="/images/face.png"></image>
       </view>
-  
-      <view class="friends1">
-        <button class="sonbutton" bindtap="son" style="width: 150rpx; height: 200rpx; display: block; box-sizing: border-box; left: 0rpx; top: 0rpx">
-          <image class="friends1-img" src="/images/friends4.png" style="position: relative; left: -53rpx; top: -3rpx"></image>
+<block wx:for="{{friends}}">
+  <view class="friends1">
+        <button class="sonbutton" bindtap="son" data-id="{{item.userId}}" data-name="{{item.nickName}}" style="width: 150rpx; height: 200rpx; display: block; box-sizing: border-box; left: 0rpx; top: 0rpx">
+          <image class="friends1-img" src="{{'https://121.199.66.137:8082/share' + item.avatarUrl}}" style="position: relative; left: -53rpx; top: -3rpx"></image>
         </button>
-        <text style="font-weight: bold;">儿子</text>
+        <text style="font-weight: bold;">{{item.nickName}}</text>
       </view>
+</block>
 
-      <view class="friends2">
-        <button class="sonbutton" bindtap="daughter" style="width: 150rpx; height: 146rpx; display: block; box-sizing: border-box; left: 0rpx; top: 0rpx">
-          <image class="friends2-img" src="/images/friends5.png" style="position: relative; left: -54rpx; top: -5rpx"></image>
-        </button>
-          <text>女儿</text>
-      </view>
 
-      <view class="friends3">
-        <button class="sonbutton" bindtap="mother" style="width: 150rpx; height: 146rpx; display: block; box-sizing: border-box; left: 0rpx; top: 0rpx">
-          <image class="friends3-img" src="/images/friends6.png" style="position: relative; left: -54rpx; top: -5rpx"></image>
-        </button>
-          <text>妈妈</text>
-      </view>
-
-      <view class="friends4">
-        <button class="sonbutton" bindtap="father" style="width: 150rpx; height: 146rpx; display: block; box-sizing: border-box; left: 0rpx; top: 0rpx">
-          <image class="friends4-img" src="/images/friends7.png" style="position: relative; left: -54rpx; top: -5rpx"></image>
-        </button>
-        <text>爸爸</text>
-      </view>
-   </view>
-
+    </scroll-view>
+    <!-- 动态展示区 -->
     <view class="right">
-      <view class="thisfriends">
-        <view>
-          <text class="calendar-name">儿子</text>
+      <!-- 动态展示区头部 -->
+      <view class="thisfriends" style="width: 427rpx; height: 75rpx; display: relative; box-sizing: border-box">
+        <!-- 展示当前聊天的对象 -->
+        <view style="position: absolute; width: 153rpx; height: 75rpx; display: absolute; box-sizing: border-box; left: 305rpx; top: 19rpx">
+          <!-- <text class="calendar-name">{{role}}</text> -->
+          <text></text>
         </view>
-        <view class="calendar-button">
-          <button bindtap="calendar" style="width: 120rpx; height: 73rpx; display: block; box-sizing: border-box; left: 331rpx; top: 0rpx; position: relative">
+        <!-- 展示日历 -->
+        <view class="calendar-button" style="position: absolute; width: 153rpx; height: 75rpx; display: absolute; box-sizing: border-box; left: 579rpx; top: 19rpx; right: 10rpx">
+          <button bindtap="calendar" style="width: 120rpx; height: 73rpx; box-sizing: border-box; left: 0rpx; top: 0rpx; position: relative">
             <image class="calendar-img" src="/images/日历.png"></image>
           </button>
         </view>
-
       </view>
 
-      <view class="videos">
-        <video src="https://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400"
-        style="width: 465rpx; height: 251rpx; display: inline-block; box-sizing: border-box; left: 78rpx; top: 10rpx"
-        binderror="videoErrorCallback" 
-        
-        >
-        </video>
-      </view>
+      <!-- 聊天区展示 -->
+      <block wx:for="{{message.list}}">
+        <!-- 视频展示 -->
+        <view class="videos" wx:if="{{item.mediaType==1}}">
+          <video src='{{"https://121.199.66.137:8082/share" + item.postingMediaSrc}}'>
+          </video>
+        </view>
+        <!-- 时间和坐标信息 wx:if="{{item.mediaType==2}}"-->
+        <view class="time-position" wx:if="{{item.mediaType==1}}">
+          <text class="time" bindtap="get">{{item.trace.traceTime}}</text>
+          <text class="position">杭州市-拱墅区-浙大城市学院</text>
+        </view>
+        <!-- 图片展示 -->
+        <view class="message1" wx:if="{{item.mediaType==0}}">
+          <image class="message1-img" src="{{'https://121.199.66.137:8082/share' + item.postingImageSrc}}" bindtap="test" data-num="{{'https://121.199.66.137:8082/share' + item.postingImageSrc}}"></image>
+        </view>
+        <!-- 时间和坐标信息 wx:if="{{item.mediaType==2}}"-->
+        <view class="time-position" wx:if="{{item.mediaType==0}}">
+          <text class="time" bindtap="get">{{item.trace.traceTime}}</text>
+          <text class="position">杭州市-拱墅区-浙大城市学院</text>
+        </view>
+        <!-- 语音类型 -->
+        <view class="message1" wx:if="{{item.mediaType==2}}">
+        <audio controls src="{{'https://121.199.66.137:8082/share'+ item.postingMediaSrc}}"></audio>
+        </view>
+        <!-- 时间和坐标信息 wx:if="{{item.mediaType==2}}"-->
+        <view class="time-position" wx:if="{{item.mediaType==2}}">
+          <text class="time" bindtap="get">{{item.trace.traceTime}}</text>
+          <text class="position">杭州市-拱墅区-浙大城市学院</text>
+        </view>
+        <!-- 转发链接 -->
+        <view class="message1" wx:if="{{item.mediaType==3}}">
+          <image class="message1-img" src="{{'https://121.199.66.137:8082/share' + item.postingImageSrc}}" bindtap="test" data-num=" {{item.postingMediaSrc}}"></image>
+        </view>
+        <!-- 时间和坐标信息 wx:if="{{item.mediaType==2}}"-->
+        <view class="time-position" wx:if="{{item.mediaType==3}}">
+          <text class="time" bindtap="get">{{item.trace.traceTime}}</text>
+          <text class="position">杭州市-拱墅区-浙大城市学院</text>
+        </view>
+      </block>
 
-      <view class="time-position">
-        <text class="time">2022年11月1日 9:30</text>
-        <text class="position">杭州市-拱墅区-浙大城市学院</text>
-      </view>
-
-      
-      <view class="message1">
-        <navigator url="https://www.baidu.com" hover-class="navigator-hover" open-type="redirect">
-          <image class="message1-img" src="/images/message1.png" ></image>
-        </navigator>
-        <!-- <web-view src="http://www.baidu.com/">
-          <image class="message1-img" src="/images/message1.png" ></image>
-        </web-view> -->
-      </view>
-
-      <view class="time-position">
-        <text class="time">2022年11月1日 10:30</text>
-        <text class="position">杭州市-拱墅区-浙大城市学院</text>
-      </view>
-
+      <!-- 轨迹查看 -->
       <view class="message2">
         <button bindtap="trajectory" style="width: 427rpx; height: 216rpx; display: block; box-sizing: border-box; left: 0rpx; top: 0rpx">
           <image class="message1-img" src="/images/OIP-C.png" style="position: relative; left: -97rpx; top: -50rpx; width: 427rpx; height: 218rpx; display: inline-block; box-sizing: border-box"></image>
@@ -90,9 +88,6 @@
 
   </view>
 
-  
-  
+
+
 </view>
-
-
-

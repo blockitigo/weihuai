@@ -1,4 +1,4 @@
-// pages/MadjustFont/adjustFont.js
+// pages/shop/channel.js
 Page({
 
   /**

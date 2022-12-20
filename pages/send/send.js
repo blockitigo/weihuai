@@ -1,5 +1,4 @@
-// 时间选择框
-
+// pages/send/send.ts
 //引入事先写好的日期设置util.js文件
 var datePicker = require('../../utils/dateSetting.js')
  
@@ -7,21 +6,34 @@ var datePicker = require('../../utils/dateSetting.js')
 const date = new Date();
 const year = date.getFullYear();
 const month = date.getMonth() + 1;
-
-
 let app = getApp();
 var recorder = wx.getRecorderManager();
+
+// 录音
+const recorderManager = wx.getRecorderManager();
+const options = {
+  duration: 10000,//指定录音的时长，单位 ms
+  sampleRate: 16000,//采样率
+  numberOfChannels: 1,//录音通道数
+  encodeBitRate: 96000,//编码码率
+  format: 'mp3',//音频格式，有效值 aac/mp3
+  frameSize: 50,//指定帧大小，单位 KB
+}
 Page({
+
+  /**
+   * 页面的初始数据
+   */
   data: {
-    imgList: [],
-    fileIDs: [],
-    desc: '',
+    isShow1: false,
+    content: "",
+    images: [],
     // 时间
     time: '',
     multiArray: [],
     multiIndex: [0, 0, 0, 0, 0],
     choose_year: "",
-  //重复选择器
+    //重复选择器
     array: ['仅一次', '每天', '每周', '每月'],
     objectArray: [
       {
@@ -42,250 +54,134 @@ Page({
       }
     ],
     index: 0,
+  },
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad() {
 
   },
 
-  //获取输入内容
-  getInput(event) {
-    console.log("输入的内容", event.detail.value)
-    this.setData({
-      desc: event.detail.value
-    })
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady() {
+
   },
 
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow() {
 
-  //选择图片
-  ChooseImage() {
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide() {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload() {
+
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh() {
+
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom() {
+
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage() {
+
+  },
+   /**
+   * 获取填写的内容
+   */
+  getTextAreaContent: function(event) {
+    console.log("输入的内容"+event.detail.value)
+    this.data.content = event.detail.value;
+  },
+ /**
+   * 选择图片
+   */
+  chooseImage: function(event) {
+    var that = this;
     wx.chooseImage({
-      count: 8 - this.data.imgList.length, //默认9,我们这里最多选择8张
+      count: 6,
       sizeType: ['original', 'compressed'], //可以指定是原图还是压缩图，默认二者都有
       sourceType: ['album'], //从相册选择
-      success: (res) => {
-        console.log("选择图片成功", res)
-        if (this.data.imgList.length != 0) {
-          this.setData({
-            imgList: this.data.imgList.concat(res.tempFilePaths)
-          })
-        } else {
-          this.setData({
-            imgList: res.tempFilePaths
-          })
+      success: function(res) {
+        // tempFilePath可以作为img标签的src属性显示图片
+        const tempFilePaths = res.tempFilePaths
+        for (var i in tempFilePaths) {
+          that.data.images = that.data.images.concat(tempFilePaths[i])
         }
-      }
-    });
-  },
-  //删除图片
-  DeleteImg(e) {
-    wx.showModal({
-      title: '要删除这张照片吗？',
-      content: '',
-      cancelText: '取消',
-      confirmText: '确定',
-      success: res => {
-        if (res.confirm) {
-          this.data.imgList.splice(e.currentTarget.dataset.index, 1);
-          this.setData({
-            imgList: this.data.imgList
-          })
-        }
-      }
-    })
-  },
-
-  //上传数据
-  publish() {
-    let desc = this.data.desc
-    let imgList = this.data.imgList
-    if (!desc || desc.length < 6) {
-      wx.showToast({
-        icon: "none",
-        title: '内容大于6个字'
-      })
-      return
-    }
-    if (!imgList || imgList.length < 1) {
-      wx.showToast({
-        icon: "none",
-        title: '请选择图片'
-      })
-      return
-    }
-    wx.showLoading({
-      title: '发布中...',
-    })
-
-    const promiseArr = []
-    //只能一张张上传 遍历临时的图片数组
-    for (let i = 0; i < this.data.imgList.length; i++) {
-      let filePath = this.data.imgList[i]
-      let suffix = /\.[^\.]+$/.exec(filePath)[0]; // 正则表达式，获取文件扩展名
-      //在每次上传的时候，就往promiseArr里存一个promise，只有当所有的都返回结果时，才可以继续往下执行
-      promiseArr.push(new Promise((reslove, reject) => {
-        wx.cloud.uploadFile({
-          cloudPath: new Date().getTime() + suffix,
-          filePath: filePath, // 文件路径
-        }).then(res => {
-          // get resource ID
-          console.log("上传结果", res.fileID)
-          this.setData({
-            fileIDs: this.data.fileIDs.concat(res.fileID)
-          })
-          reslove()
-        }).catch(error => {
-          console.log("上传失败", error)
+        // 设置图片
+        that.setData({
+          images: that.data.images,
         })
-      }))
-    }
-    //保证所有图片都上传成功
-    Promise.all(promiseArr).then(res => {
-      wx.cloud.database().collection('timeline').add({
-        data: {
-          fileIDs: this.data.fileIDs,
-          date: app.getNowFormatDate(),
-          createTime: db.serverDate(),
-          desc: this.data.desc,
-          images: this.data.imgList
-        },
-        success: res => {
-          wx.hideLoading()
-          wx.showToast({
-            title: '发布成功',
-          })
-          console.log('发布成功', res)
-          wx.navigateTo({
-            url: '../pengyouquan/pengyouquan',
-          })
-        },
-        fail: err => {
-          wx.hideLoading()
-          wx.showToast({
-            icon: 'none',
-            title: '网络不给力....'
-          })
-          console.error('发布失败', err)
-        }
-      })
+      },
     })
   },
+   // 预览图片
+   previewImg: function(e) {
+    //获取当前图片的下标
+    var index = e.currentTarget.dataset.index;
 
-
-
-
-  // 手指点击录音
-  voice_ing_start: function () {
-    console.log('手指点击录音')
-    wx.showToast({
-      title: '按住录音，松开发送',
-      icon: 'none'
+    wx.previewImage({
+      //当前显示图片
+      current: this.data.images[index],
+      //所有图片
+      urls: this.data.images
     })
+  },
+/**
+   * 删除图片
+   */
+  removeImg: function(event) {
+    var position = event.currentTarget.dataset.index;
+    this.data.images.splice(position, 1);
+    // 渲染图片
     this.setData({
-      voice_ing_start_date: new Date().getTime(), //记录开始点击的时间
-    })
-    const options = {
-      duration: 10000, //指定录音的时长，单位 ms
-      sampleRate: 8000, //采样率
-      numberOfChannels: 1, //录音通道数
-      encodeBitRate: 24000, //编码码率
-      format: 'mp3', //音频格式，有效值 aac/mp3
-      audioSource: 'auto',
-      frameSize: 12, //指定帧大小，单位 KB
-    }
-    recorder.start(options) //开始录音
- 
-    this.animation = wx.createAnimation({
-      duration: 1200,
-    }) //播放按钮动画
-    that.animation.scale(0.8, 0.8); //还原
-    that.setData({
- 
-      spreakingAnimation: that.animation.export()
+      images: this.data.images,
     })
   },
-  onReady: function () {
-    this.on_recorder();
-  },
- 
-  // 录音监听事件
-  on_recorder: function () {
-    console.log('录音监听事件');
-    recorder.onStart((res) => {
-      console.log('开始录音');
+ /**
+   * 添加到发布集合中
+   */
+  saveToHistoryServer: function(event) {
+    var that = this;
+    const db = wx.cloud.database();
+    db.collection('history').add({
+      // data 字段表示需新增的 JSON 数据
+      data: {
+        content: that.data.content,
+        date: new Date(),
+        images: that.data.images,
+      },
+      success: function(res) {
+        // res 是一个对象，其中有 _id 字段标记刚创建的记录的 id
+        console.log(res)
+      },
+      fail: console.error
     })
-    recorder.onStop((res) => {
-      let {
-        tempFilePath
-      } = res;
-      console.log('停止录音,临时路径', tempFilePath);
-      var x = new Date().getTime() - this.data.voice_ing_start_date
-      if (x > 1000) {
-        let timestamp = new Date().getTime();
-        wx.cloud.uploadFile({
-          cloudPath: "sounds/" + timestamp + '.mp3',
-          filePath: tempFilePath,
-          success: res => {
-            console.log('上传成功', res)
-            that.setData({
-              soundUrl: res.fileID,
-            })
- 
-            var data = {
-              _qunId: 'fb16f7905e4bfa24009098dc34b910c8',
-              _openId: wx.getStorageSync('openId'),
-              // 消息
-              text: '',
-              voice: res.fileID,
-              img: '',
-              // 时间
-              dataTime: util.nowTime(),
-              // 头像
-              sendOutHand: wx.getStorageSync('userInfo').avatarUrl,
-              // 昵称
-              sendOutname: wx.getStorageSync('userInfo').nickName
-            }
-            console.log(data)
-            wx.cloud.callFunction({
-              name: "news",
-              data: data,
-              success(res) {
-                console.log('发送语音发送', res)
-              },
-              fail(res) {
-                console.log('发送语音失败', res)
-              }
-            })
-          },
-        })
-      }
-    })
-    recorder.onFrameRecorded((res) => {
-      return
-      console.log('onFrameRecorded  res.frameBuffer', res.frameBuffer);
-      string_base64 = wx.arrayBufferToBase64(res.frameBuffer)
- 
-      console.log('string_base64--', string_base64)
-    })
-  },
-  // 手指松开录音
-  voice_ing_end: function () {
-    console.log('手指松开录音')
- 
-    that.setData({
-      voice_icon_click: false,
-      animationData: {}
-    })
-    this.animation = "";
-    var x = new Date().getTime() - this.data.voice_ing_start_date
-    if (x < 1000) {
-      console.log('录音停止，说话小于1秒！')
-      wx.showModal({
-        title: '提示',
-        content: '说话要大于1秒！',
-      })
-      recorder.stop();
-    } else {
-      // 录音停止，开始上传
-      recorder.stop();
-    }
   },
 
   // 时间
@@ -347,15 +243,98 @@ bindPickerChange: function (e) {
     index: e.detail.value
   })
 },
-// 获取输入的内容
-onInputtingDesc: function (e) {
-  let html = e.detail.html;   //相关的html代码
-  let originText = e.detail.text;  //text，不含有任何的html标签
-  this.setData({
-    ['topic.text']: html,
-    ['topic.originText']: originText
-  });
-}
+start: function(){
+  //开始录音
+  var that=this
+  wx.authorize({
+    scope: 'scope.record',
+    success() {
+      console.log("录音授权成功");
+      //第一次成功授权后 状态切换为2
+      that.setData({
+        status: 2,
+      })
+      recorderManager.start(options);
+      recorderManager.onStart(() => {
+        console.log('recorder start')
+      });
+      //错误回调
+      recorderManager.onError((res) => {
+        console.log(res);
+      })
+    },
+    fail() {
+      console.log("第一次录音授权失败");
+      wx.showModal({
+        title: '提示',
+        content: '您未授权录音，功能将无法使用',
+        showCancel: true,
+        confirmText: "授权",
+        confirmColor: "#52a2d8",
+        success: function (res) {
+          if (res.confirm) {
+            //确认则打开设置页面（重点）
+            wx.openSetting({
+              success: (res) => {
+                console.log(res.authSetting);
+                if (!res.authSetting['scope.record']) {
+                  //未设置录音授权
+                  console.log("未设置录音授权");
+                  wx.showModal({
+                    title: '提示',
+                    content: '您未授权录音，功能将无法使用',
+                    showCancel: false,
+                    success: function (res) {
 
- 
+                    },
+                  })
+                } else {
+                  //第二次才成功授权
+                  console.log("设置录音授权成功");
+                  that.setData({
+                    status: 2,
+                  })
+           
+                  recorderManager.start(options);
+                  recorderManager.onStart(() => {
+                    console.log('recorder start')
+                  });
+                  //错误回调
+                  recorderManager.onError((res) => {
+                    console.log(res);
+                  })
+                }
+              },
+              fail: function () {
+                console.log("授权设置录音失败");
+              }
+            })
+          } else if (res.cancel) {
+            console.log("cancel");
+          }
+        },
+        fail: function () {
+          console.log("openfail");
+        }
+      })
+    }
+  })
+},
+  //停止录音
+  stop: function () {
+    recorderManager.stop();
+    recorderManager.onStop((res) => {
+      this.tempFilePath = res.tempFilePath;
+      console.log('停止录音', res.tempFilePath)
+      const { tempFilePath } = res
+    })
+  },
+
+isShow(){
+  this.setData({
+    //取反
+     isShow1:!this.data.isShow1
+     })
+},
+
 })

@@ -1,0 +1,211 @@
+/* pages/Mine/Group.wxss */
+
+.profile{
+    background: linear-gradient( to bottom,  #FFFFE0	,white);  /*  柔和色*/ 
+    height: 10vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    height: 300rpx;
+}
+
+
+.card{
+    width: 100%;
+    display: flex;
+    justify-content: space-between ;
+
+
+}
+.meta{
+    width: 360rpx;
+    box-sizing: border-box;
+    display: flex;
+    padding: 25rpx;
+    justify-content: space-between;
+    background-color: white;
+    border-radius: 10rpx; /* yuanjiao */
+    align-items: center;
+}
+
+
+
+.shoucangtu{
+    width: 48rpx;
+    height: 48rpx;
+
+    margin: 16rpx;
+    border-radius: 6rpx;
+
+}
+
+.liketu{
+    width: 48rpx;
+    height: 48rpx;
+
+    margin: 16rpx;
+    border-radius: 6rpx;
+
+}
+
+.name{
+    font-size: 25rpx;
+    margin-left: 24rpx;
+}
+
+
+/* 弹窗 浮动 */
+.about{
+    position:fixed;
+    background-color: rgba(0,0,0,0.4);
+    height: 1500rpx;
+    width: 100%;
+  }
+  
+  .about .content{
+    background-color: #fff;
+    height: 700rpx;
+    width: 90%;
+    border-radius: 30rpx;
+    margin: 0 auto;
+    margin-top: 220rpx;
+    text-align: center;
+  }
+  
+  .about .content .img image{
+    width: 150rpx;
+    height: 120rpx;
+    margin-top: 50rpx;
+  }
+
+
+  /* 输入框 */
+  .input{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .input .img {
+
+    margin-top: 17rpx;
+    margin-left: 27rpx;
+  }
+  
+  .search{
+
+        display: flex;
+        flex-direction: row;
+        justify-content: left;
+        
+        width: 90%;
+        background-color: rgb(214, 212, 212);
+        height: 60rpx;
+        margin: 0 auto;
+        margin-left: 0;
+        border-radius: 60rpx;
+     
+  }
+  .biaoshi {
+    margin-left: -3%;
+    width: 50rpx;
+    height: 50rpx;
+  }
+  
+  .input1 {
+   
+    margin-left: 27rpx;
+    color: #b6b6b6;
+    font-size: 30rpx;
+  }
+
+  /* anniu */
+  .about .buton{
+    margin-top: 20%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left: 100rpx;
+    margin-right: 100rpx;
+  }
+
+  /* 字体 */
+  .about .content .font{
+    font-weight: bold;
+    font-size: 40rpx;
+    height: 100rpx;
+  }
+  .about .content .font1{
+    color: #919191;
+    margin-top: 20rpx;
+    font-size: 30rpx;
+  }
+  .about .content .font2{
+    color: #919191;
+    margin-top: 220rpx;
+    font-size: 26rpx;
+  }
+
+  /* 下方表格 */
+  /* 下方部分的css */
+.bottom{
+    margin-top: 50rpx;
+    
+  }
+  .bottom-content{
+    width: 95%; 
+    border-radius: 5%;
+    margin: auto;
+    background-color: rgb(253, 253, 253);
+    padding-bottom: 35rpx;
+    box-shadow: 5rpx 5rpx 10rpx 5rpx #e1e1e1;
+  }
+  .me-about{
+    display: flex;
+    margin: 20rpx 40rpx;
+    padding: 30rpx 0rpx;
+    /* 在主轴方向如何展示 */
+    justify-content: space-between;
+    /* 下边框横线 */
+    border-bottom: 2rpx solid rgb(238, 238, 238);
+  }
+
+  .quit{
+    
+    display: block;
+    box-sizing: border-box;
+    background-color: rgba(231, 229, 229, 0.4);
+  }
+
+  .me-about image{
+    align-self: center;
+    width: 35rpx;
+    height: 35rpx;
+  }
+  .bottom .me-about button{
+    position: relative;
+    left: -48rpx;
+    font-weight: normal;
+    font-size: 32rpx;
+    width: 600rpx;
+    text-align: left;
+  }
+  
+  /* 提醒 */
+  .hint{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column; 
+    align-items: center;
+    
+    margin-left: 80rpx;
+    background-color: #ffd23c;
+    border-radius: 50rpx;
+    width:80%;
+    /* 大小 */
+    font-weight: bold;
+    font-size: 20rpx;
+    color: #222222;
+  }

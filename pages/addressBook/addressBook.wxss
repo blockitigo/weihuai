@@ -19,6 +19,8 @@
   border-left: 0rpx;
   border-bottom: 0rpx;
   border-right-width: 1rpx;
+  height:calc(100vh - 90rpx);
+  width: 200rpx;
 }
 
 /* 我的头像 */

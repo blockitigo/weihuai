@@ -9,9 +9,9 @@
       <image class="message1-img" src="/images/message1.png" style="position: relative; left: -20rpx; top: -9rpx"></image>
     </view>
     <view class="time-position">
-        <text class="time">2022年11月1日 9:30</text>
-        <text class="position">杭州市-拱墅区-浙大城市学院</text>
-      </view>
+      <text class="time">2022年11月1日 9:30</text>
+      <text class="position">杭州市-拱墅区-浙大城市学院</text>
+    </view>
     
   </view>
 

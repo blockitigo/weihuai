@@ -1,0 +1,37 @@
+/* pages/Mine/timestamp.wxss */
+
+b{
+
+    position: bottom;
+    width: 1000rpx;
+}
+.titleImg{
+    display: flex;
+  }
+  .font{
+    width: 500rpx;
+    height: 120rpx;
+    margin: 35rpx;  
+       /*文本上下居中  */
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column; 
+    /* 大小 */
+    font-weight: bold;
+    font-size: 40rpx;
+  }
+  .titleImg image{
+    width: 120rpx;
+    height: 120rpx;
+    margin: 35rpx;
+  }
+.lineYellow{
+    background-color: #ffd23c;
+    height: 12rpx;
+    width: 80%;
+    margin-left:50rpx;
+  }
+  .banner{
+    height: 12rpx;
+}

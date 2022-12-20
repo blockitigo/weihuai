@@ -11,8 +11,16 @@
         <image class = "icon" src="/images/{{item.icon}}.png"></image><!--#二级菜单图 -->
       </view>
 
-      <view class = "comment">{{item.name}}</view>      
+      <view class = "comment">{{item.name}}</view>   
+
+      <view class="uid" wx:if="{{item.isuid}}">3200005767{{uid}}</view>
+      <view class="name" wx:if="{{item.isname}}">{{name}}</view>
+      <view class="isicon" wx:if="{{item.isicon}}">
+        <image class = "icon" src="{{touxiang}}"></image><!--#二级菜单图 -->
+      </view>
       <view class = "more" wx:if="{{item.ismore}}" >></view>
+
+
     </view>
       <!--block for循环   -->
   </block>
@@ -28,7 +36,32 @@
     
     >
 
-    <view style="height: 500rpx ">asfjl;kdajfsa;</view>  
+ 
 
+    <view class="font">输 入 昵 称</view>
+    <!-- <view class="img">
+      <image src="../../images/index-icon/title.png"></image>
+    </view>     -->
+    <view class="input">
+        <view class="text" style="margin-left: 1%;width: 200rpx;">
+            输入组名：
+        </view>
+
+        <view class="search">
+            <image class ="biaoshi" src="/images/search.png"></image>
+        
+
+            <view class="input1">
+            <input type="text" placeholder="搜索"  bindinput="searchText"/>
+            </view>
+        </view>
+
+
+        
+    </view>
+    <view class="buton">
+        <view class="b" bindtap="confirm" style="font-display: center; height: 60rpx;width: 100%;background-color:  #ffd23c; ">确认</view>
+        <view class="b" bindtap="concel" style="font-display: center;height: 60rpx;width: 100%;background-color:  #BFCBD9; ">取消</view>
+    </view>
 
 </page-container>

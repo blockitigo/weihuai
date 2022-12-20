@@ -1,0 +1,119 @@
+<!--pages/Mine/Group.wxml-->
+
+<!-- style="display:{{about}};"  创建群组-->
+<view class="about" style="display:{{about}};">
+  <view class="content">
+    <view class="img">
+      <image src="/images/face.png"></image>
+    </view>
+    <view class="font">创 建 群 组</view>
+
+    <view class="input">
+      <view class="text" style="margin-left: 1%;width: 200rpx;">
+        输入组名：
+      </view>
+
+      <view class="search">
+        <image class="biaoshi" src="/images/搜索.png"></image>
+
+
+        <view class="input1">
+          <input type="text" placeholder="搜索" bindinput="searchText" />
+        </view>
+      </view>
+
+
+
+    </view>
+    <view class="buton">
+      <view class="b" bindtap="confirm" style="height: 60rpx;width: 100%;background-color:  #ffd23c; ">确认</view>
+      <view class="b" bindtap="concel" style="height: 60rpx;width: 100%;background-color:  #BFCBD9; ">取消</view>
+    </view>
+
+  </view>
+</view>
+
+
+
+
+<!-- style="display:{{about}};"  加入群组-->
+<view class="about" style="display:{{about2}};">
+  <view class="content">
+    <view class="img">
+      <image src="/images/收藏.png"></image>
+    </view>
+    <view class="font">加 入 群 组</view>
+
+    <view class="input">
+      <view class="text" style="margin-left: 1%;width: 200rpx;">
+        输入手机号：
+      </view>
+
+      <view class="search">
+        <image class="biaoshi" src="/images/朋友.png"></image>
+        <view class="input1">
+          <input type="text" placeholder="搜索" bindinput="searchText" />
+        </view>
+      </view>
+
+
+
+    </view>
+    <view class="buton">
+      <view class="b" bindtap="confirm" style="height: 60rpx;width: 100%;background-color:  #ffd23c; ">确认</view>
+      <view class="b" bindtap="concel" style="height: 60rpx;width: 100%;background-color:  #BFCBD9; ">取消</view>
+    </view>
+
+  </view>
+</view>
+
+
+
+
+
+
+
+<view class="profile">
+  <view class="card">
+    <view class="meta" bindtap="showPop">
+      <view class="name">创建群组</view>
+      <image class="liketu" src="/images/点赞.png"></image>
+    </view>
+
+  </view>
+
+
+  <!-- 收藏 -->
+  <view class="card">
+    <view class="meta" bindtap="showPop2">
+      <view class="name">加入群组</view>
+      <image class="shoucangtu" src="/images/收藏.png"></image>
+    </view>
+
+  </view>
+
+
+</view>
+
+<!-- <page-container show="false" style="width:85%;height:54%;left:7.5%;top:23%;border-radius:10rpx" position="center">
+    
+</page-container> -->
+
+<!-- 下方表格 -->
+<view class="bottom">
+  <view class="bottom-content">
+    <block wx:for="{{friends}}">
+      <view class="me-about">
+        <text>{{item.nickName}}</text>
+        <view class="quit" bindtap='delete' data-id='{{item.userId}}'>
+          删除
+        </view>
+      </view>
+    </block>
+
+  </view>
+</view>
+
+<view class="hint">
+  <text>提示：要有好友先创建群组，才能加入群组</text>
+</view>

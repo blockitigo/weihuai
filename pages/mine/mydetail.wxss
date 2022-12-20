@@ -13,6 +13,7 @@
 .item{
     display: flex;
     
+    
     border-bottom: 1rpx solid #e6e6e6;
     align-items: center;
     background-color: white;
@@ -40,9 +41,78 @@
     font-weight: 400;
 
 }
+
+.more{
+    margin-right: 0%;
+}
+.uid{
+    margin-right: 3%;
+}
+.isicon{
+    margin-right: 2%;
+    
+    border-radius: 2rpx;
+}
 /* 调试button大小用 */
 
 
 .banner{
     height: 18rpx;
 }
+
+
+
+/* tanchuangbufen */
+ /* 输入框 */
+ .input{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 100rpx;
+  }
+
+  .search{
+
+        display: flex;
+        flex-direction: row;
+        justify-content: left;
+        
+        width: 90%;
+        background-color: rgb(214, 212, 212);
+        height: 60rpx;
+        margin: 0 auto;
+        margin-left: 0;
+        border-radius: 60rpx;
+     
+  }
+  .biaoshi {
+    margin-left: -3%;
+    width: 50rpx;
+    height: 50rpx;
+  }
+  
+  .input1 {
+   
+    margin-left: 27rpx;
+    color: #b6b6b6;
+    font-size: 30rpx;
+  }
+
+  /* anniu */
+  .buton{
+    margin-top: 20%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left: 100rpx;
+    margin-right: 100rpx;
+  }
+    /* 字体 */
+    .font{
+        font-weight: bold;
+        font-size: 40rpx;
+        height: 200rpx;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        }

@@ -1,22 +1,78 @@
+/* pages/send/send.wxss */
 
-.photo{
+.content {
+  height: 100%;
+  width: 100%;
+}
+
+textarea {
+  width: 700rpx;
+  padding: 25rpx 0;
+}
+
+.text-content {
+  background-color: #f3efef;
+  padding: 0 25rpx;
+}
+
+.image-group {
   display: flex;
-  height: 100px;
-  width: 100px;
+  white-space: nowrap;
+  margin-top: 30px;
 }
-.iamgeRootAl{
-  box-sizing: border-box;
-}
-.imgRoot{
-  float: left;
+
+.image-group view{
+  display: inline-block;
+  flex-direction: row;
+  width: 375rpx;
+  height: 375rpx;
+  margin-right: 20rpx;
   margin-left: 20rpx;
-  margin-top: 20rpx;
-  position: relative;
+  background-color: #cfcccc;
 }
-.photo1{
-  width: 350rpx;
-  height: 250rpx;
+
+.image-group view image{
+  width: 100%;
+  height: 100%;
+  align-items: center;
 }
+
+.image-group view icon{
+  display: inline-block;
+  vertical-align: top;
+  position: absolute
+}
+.btn-func {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  margin: 0 auto;
+  align-items: center;
+}
+
+.btn-img {
+  width: 220px;
+  height: 45px;
+  line-height: 45px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-color: rgb(113, 98, 250);
+  color: #fff;
+  border-radius: 50px;
+}
+
+.btn {
+  width: 220px;
+  height: 45px;
+  line-height: 45px;
+  background-color: #d50310;
+  color: #fff;
+  border-radius: 50px;
+  margin-bottom: 20px;
+}
+/* 时间按钮 */
 
 .picker-view-column{
   text-align: center;
@@ -44,5 +100,3 @@
   padding: 0 5px;
   color: rgb(144, 147, 167);
 }
-
-

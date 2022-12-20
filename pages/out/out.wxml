@@ -1,0 +1,4 @@
+<!--pages/out/out.wxml-->
+<web-view src="{{url}}"></web-view>
+<view>nihao </view>
+<view></view>

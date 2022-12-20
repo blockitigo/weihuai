@@ -1,18 +1,23 @@
-// pages/MadjustFont/adjustFont.js
+// pages/out/out.js
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    url: 'https://www.bai.com',
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+var that=this;
+that.setData({
+  url: app.globalData.toUrl
+})
+console.log(that.data.url)
   },
 
   /**
